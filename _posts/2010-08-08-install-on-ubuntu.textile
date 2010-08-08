@@ -9,7 +9,7 @@ p(meta). 08 Aug 2010
 
 neoip-webpack is simple to install on ubuntu.
 <pre class="terminal"><code>$ sudo add-apt-repository ppa:jerome-etienne/neoip \
-	sudo apt-get update sudo apt-get install neoip-utils
+	sudo apt-get update && sudo apt-get install neoip-utils
 </code></pre>
 
 and you are *done*
