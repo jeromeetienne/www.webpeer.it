@@ -1,0 +1,12 @@
+---
+layout: post
+title: slides
+---
+
+h1. {{ page.title }}
+
+p(meta). 08 Aug 2010
+
+Here is some slides about urfastr
+
+<iframe src="https://docs.google.com/present/embed?id=dhng4bgf_18ctjwh6f8" frameborder="0" width="410" height="342"></iframe>
