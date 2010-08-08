@@ -12,4 +12,12 @@ neoip-webpack is simple to install on ubuntu.
 	sudo apt-get update && sudo apt-get install neoip-utils
 </code></pre>
 
-and you are *done*
+Check it is all ok
+<pre class="terminal"><code>$ neoip-detect 
+webpack is installed and uptodate.
+</pre>
+
+Use it with mplayer
+<pre class="terminal"><code>$ mplayer `neoip-url-static http://mirror.bigbuckbunny.de/peach/bigbuckbunny_movies/big_buck_bunny_1080p_surround.avi`
+</pre>
+
