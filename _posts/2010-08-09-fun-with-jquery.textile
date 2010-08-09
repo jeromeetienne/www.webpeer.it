@@ -10,7 +10,7 @@ p(meta). 09 Aug 2010
 Here is a little jquery script to webpackize all the images in your page:
 
 
-{% highlight javascript %}
+{% highlight html %}
 <script type="text/javascript" src="neoip_webpack.js"></script>
 <script>
 	neoip_webpack.ready(function(){
