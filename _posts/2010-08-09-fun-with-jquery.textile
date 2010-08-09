@@ -20,4 +20,4 @@ bc. <script type="text/javascript" src="neoip_webpack.js"></script>
 
 Pretty simple no ? And now all your images will be downloaded with p2p speed.
 
-It would be as simple to webpackize flash object or video source.
+It would be as simple to webpackize flash &lt;object&gt; or video &lt;source&gt; .
