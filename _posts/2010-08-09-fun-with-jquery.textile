@@ -23,4 +23,4 @@ Here is a little jquery script to webpackize all the images in your page:
 
 Pretty simple no ? And now all your images will be downloaded with p2p efficiency.
 
-It would be as simple to webpackize @"flash &lt;object&gt;"@ or video &lt;source&gt; .
+It would be as simple to webpackize flash @<object>@ or video &lt;source&gt; .
