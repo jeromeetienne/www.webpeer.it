@@ -21,6 +21,6 @@ Here is a little jquery script to _webpeerize_ all the images in your page:
 </script>
 {% endhighlight %}
 
-Now your images will be downloaded with _"p2p efficiency"_. Pretty simple no ?
+Now your images will be downloaded with _p2p efficiency_. Pretty simple no ?
 
 It would be as simple to webpeerize flash @<object>@ or video @<source>@.
