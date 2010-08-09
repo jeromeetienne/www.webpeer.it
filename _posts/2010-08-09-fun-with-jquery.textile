@@ -11,7 +11,7 @@ Here is a little jquery script to webpackize all the images in your page:
 
 
 {% highlight javascript %}
-<script type="text/javascript" src="neoip_webpack.js"></script>
+<script type="text/javascript" src="neoip_webpack.js"/>
 <script>
 	neoip_webpack.ready(function(){
 		$("img").each(function(){
