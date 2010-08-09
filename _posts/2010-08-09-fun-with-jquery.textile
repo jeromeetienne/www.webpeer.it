@@ -7,7 +7,7 @@ h1. {{ page.title }}
 
 p(meta). 09 Aug 2010
 
-Here is a little jquery script to webpeerize all the images in your page:
+Here is a little jquery script to _webpeerize_ all the images in your page:
 
 
 {% highlight html %}
