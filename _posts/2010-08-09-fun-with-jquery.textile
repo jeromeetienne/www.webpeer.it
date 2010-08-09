@@ -18,6 +18,6 @@ bc. <script type="text/javascript" src="neoip_webpack.js"></script>
 	});
 </script>
 
-Pretty simple no ? And now all your images will be downloaded with p2p speed.
+Pretty simple no ? And now all your images will be downloaded at p2p speed.
 
 It would be as simple to webpackize flash &lt;object&gt; or video &lt;source&gt; .
