@@ -21,6 +21,7 @@ Here is a little jquery script to webpackize all the images in your page:
 </script>
 {% endhighlight %}
 
-Pretty simple no ? And now all your images will be downloaded with p2p efficiency.
+Now your images will be downloaded with p2p efficiency. Pretty simple no ?
+
 
 It would be as simple to webpackize flash @<object>@ or video @<source>@.
