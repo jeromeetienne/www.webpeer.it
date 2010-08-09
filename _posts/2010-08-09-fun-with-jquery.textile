@@ -7,7 +7,7 @@ h1. {{ page.title }}
 
 p(meta). 09 Aug 2010
 
-Here is a little jquery script to webpackize all the images in your page
+Here is a little jquery script to webpackize all the images in your page:
 
 bc. <script type="text/javascript" src="neoip_webpack.js"></script>
 <script>
@@ -17,3 +17,7 @@ bc. <script type="text/javascript" src="neoip_webpack.js"></script>
 		})
 	});
 </script>
+
+Pretty simple no ? And now all your images will be downloaded with p2p speed.
+
+It would be as simple to webpackize flash <object> or video <source>.
