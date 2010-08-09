@@ -9,7 +9,9 @@ p(meta). 09 Aug 2010
 
 Here is a little jquery script to webpackize all the images in your page:
 
-bc. <script type="text/javascript" src="neoip_webpack.js"></script>
+
+{% highlight javascript %}
+<script type="text/javascript" src="neoip_webpack.js"></script>
 <script>
 	neoip_webpack.ready(function(){
 		$("img").each(function(){
@@ -17,6 +19,7 @@ bc. <script type="text/javascript" src="neoip_webpack.js"></script>
 		})
 	});
 </script>
+{% endhighlight %}
 
 Pretty simple no ? And now all your images will be downloaded with p2p efficiency.
 
