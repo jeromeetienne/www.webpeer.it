@@ -11,11 +11,11 @@ Here is a little jquery script to _webpeerize_ all the images in your page:
 
 
 {% highlight html %}
-<script type="text/javascript" src="neoip_webpeer.js"></script>
+<script type="text/javascript" src="webpeer.js"></script>
 <script>
-	neoip_webpeer.ready(function(){
+	webpeer.ready(function(){
 		$("img").each(function(){
-			this.attr("src", webpeerize(this.attr('src')) );
+			this.attr("src", webpeer.url(this.attr('src')) );
 		})
 	});
 </script>
