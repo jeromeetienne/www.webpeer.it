@@ -101,6 +101,10 @@ ul.posts {
     color: black;
   }
 
+  .site .title a.main {
+	font-size: larger;
+  }
+
   .site .title a.extra {
     color: #aaa;
     text-decoration: none;
