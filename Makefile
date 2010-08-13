@@ -3,8 +3,10 @@
 
 all:
 
-jsdoc:
-	jsrun.sh -d=docs/jsdoc ../node-neoip/lib
+doc: myjsdoc
+
+myjsdoc:
+	(cd ../node-neoip/lib && jsrun.sh -d=../mw/docs/jsdoc .)
 
 server:
 	jekyll --server
