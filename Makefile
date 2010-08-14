@@ -13,6 +13,12 @@ myjsdoc:
 server:
 	jekyll --server
 
-import_webpeerjs:
+#################################################################################
+#		webpeerjs handling						#
+#################################################################################
+
+webpeerjs_import:
 	(cd ../node-neoip/web_build && DESTDIR=$(PWD)/js make)
-	
+
+webpeerjs_clean:
+	rm -f js/webpeer.js js/webpeer-*.js js/webpeer-*-min.js
