@@ -11,7 +11,7 @@ Here is a little jquery script to _webpeerize_ all the images in your page:
 
 
 {% highlight html %}
-<script type="text/javascript" src="webpeer.js"></script>
+<script type="text/javascript" src="http://webpeer.it/js/webpeer.js"></script>
 <script>
 	webpeer.ready(function(){
 		$("img").each(function(){
