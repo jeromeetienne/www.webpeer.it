@@ -440,7 +440,7 @@ ul.inheritsList
 						Constant informations about applications
 						
 							<br />
-							<i>Defined in: </i> <a href="../symbols/src/node-neoip_lib_neoip_app_detect.js.html">neoip_app_detect.js</a>.
+							<i>Defined in: </i> <a href="../symbols/src/neoip_app_detect.js.html">neoip_app_detect.js</a>.
 						
 						
 					</div>
@@ -466,7 +466,7 @@ ul.inheritsList
  http://www.webtoolkit.info/
 						
 							<br />
-							<i>Defined in: </i> <a href="../symbols/src/node-neoip_lib_base64.js.html">base64.js</a>.
+							<i>Defined in: </i> <a href="../symbols/src/base64.js.html">base64.js</a>.
 						
 						
 					</div>
@@ -491,7 +491,7 @@ ul.inheritsList
 						a serial to uniquely define a given call
 						
 							<br />
-							<i>Defined in: </i> <a href="../symbols/src/node-neoip_lib_neoip_jsonp_call.js.html">neoip_jsonp_call.js</a>.
+							<i>Defined in: </i> <a href="../symbols/src/neoip_jsonp_call.js.html">neoip_jsonp_call.js</a>.
 						
 						
 					</div>
@@ -524,7 +524,7 @@ ul.inheritsList
 						
 						
 							<br />
-							<i>Defined in: </i> <a href="../symbols/src/node-neoip_lib_casti_ctrl_t.js.html">casti_ctrl_t.js</a>.
+							<i>Defined in: </i> <a href="../symbols/src/casti_ctrl_t.js.html">casti_ctrl_t.js</a>.
 						
 						
 					</div>
@@ -575,7 +575,7 @@ opts:
   - "idle_timeout"/null: when no data has been received for
 						
 							<br />
-							<i>Defined in: </i> <a href="../symbols/src/node-neoip_lib_casto_testclient_t.js.html">casto_testclient_t.js</a>.
+							<i>Defined in: </i> <a href="../symbols/src/casto_testclient_t.js.html">casto_testclient_t.js</a>.
 						
 						
 					</div>
@@ -606,7 +606,7 @@ opts:
 					<a name="create"> </a>
 					<div class="fixedFont">
 					
-					<span class="light">{String}</span>
+					<span class="light">{string}</span>
 					<b>create</b>(opts)
 					
 					</div>
@@ -620,7 +620,7 @@ opts:
 - NOTE: no detection of the neoip-casto apps is done
 						
 							<br />
-							<i>Defined in: </i> <a href="../symbols/src/node-neoip_lib_url_builder_casto.js.html">url_builder_casto.js</a>.
+							<i>Defined in: </i> <a href="../symbols/src/url_builder_casto.js.html">url_builder_casto.js</a>.
 						
 						
 					</div>
@@ -646,7 +646,7 @@ opts:
 							<dl class="detailList">
 							<dt class="heading">Returns:</dt>
 							
-								<dd>the url for the stream out of neoip-casto</dd>
+								<dd><span class="light fixedFont">{string}</span> the url for the stream out of neoip-casto</dd>
 							
 							</dl>
 						
@@ -666,7 +666,7 @@ opts:
 						Discover an neoip application
 						
 							<br />
-							<i>Defined in: </i> <a href="../symbols/src/node-neoip_lib_neoip_app_detect.js.html">neoip_app_detect.js</a>.
+							<i>Defined in: </i> <a href="../symbols/src/neoip_app_detect.js.html">neoip_app_detect.js</a>.
 						
 						
 					</div>
@@ -684,16 +684,16 @@ opts:
 								<dd>the neoip application suffix</dd>
 							
 								<dt>
-									<span class="light fixedFont">{function}</span> <b>success_cb</b>
+									<span class="light fixedFont">{function(root_url|version)}</span> <b>success_cb</b>
 									
 								</dt>
-								<dd>notified if app is found success_cb(root_url, version)</dd>
+								<dd>notified if app is found</dd>
 							
 								<dt>
-									<span class="light fixedFont">{function}</span> <b>failure_cb</b>
+									<span class="light fixedFont">{function(error)}</span> <b>failure_cb</b>
 									
 								</dt>
-								<dd>notified if app is not found failure_cb(reason)</dd>
+								<dd>notified if app is not found</dd>
 							
 							</dl>
 						
@@ -717,7 +717,7 @@ opts:
 						Discover webpack on localhost and notify the result
 						
 							<br />
-							<i>Defined in: </i> <a href="../symbols/src/node-neoip_lib_neoip_app_detect.js.html">neoip_app_detect.js</a>.
+							<i>Defined in: </i> <a href="../symbols/src/neoip_app_detect.js.html">neoip_app_detect.js</a>.
 						
 						
 					</div>
@@ -756,7 +756,7 @@ opts:
 						Display the cmdline usage
 						
 							<br />
-							<i>Defined in: </i> <a href="../symbols/src/node-neoip_lib_url_builder_oload_exe.js.html">url_builder_oload_exe.js</a>.
+							<i>Defined in: </i> <a href="../symbols/src/url_builder_oload_exe.js.html">url_builder_oload_exe.js</a>.
 						
 						
 					</div>
@@ -785,7 +785,7 @@ opts:
 - NOTE: needed because jquery getJSON is not able to handle failure_cb
 						
 							<br />
-							<i>Defined in: </i> <a href="../symbols/src/node-neoip_lib_neoip_jsonp_call.js.html">neoip_jsonp_call.js</a>.
+							<i>Defined in: </i> <a href="../symbols/src/neoip_jsonp_call.js.html">neoip_jsonp_call.js</a>.
 						
 						
 					</div>
@@ -824,7 +824,7 @@ opts:
 						do a rpc call to a neoip application
 						
 							<br />
-							<i>Defined in: </i> <a href="../symbols/src/node-neoip_lib_neoip_rpc_web.js.html">neoip_rpc_web.js</a>.
+							<i>Defined in: </i> <a href="../symbols/src/neoip_rpc_web.js.html">neoip_rpc_web.js</a>.
 						
 						
 					</div>
@@ -864,7 +864,7 @@ opts:
 - used in discover_webpack()
 						
 							<br />
-							<i>Defined in: </i> <a href="../symbols/src/node-neoip_lib_neoip_app_detect.js.html">neoip_app_detect.js</a>.
+							<i>Defined in: </i> <a href="../symbols/src/neoip_app_detect.js.html">neoip_app_detect.js</a>.
 						
 						
 					</div>
@@ -912,7 +912,7 @@ opts:
 - "installed" = present and uptodate
 						
 							<br />
-							<i>Defined in: </i> <a href="../symbols/src/node-neoip_lib_neoip_app_detect.js.html">neoip_app_detect.js</a>.
+							<i>Defined in: </i> <a href="../symbols/src/neoip_app_detect.js.html">neoip_app_detect.js</a>.
 						
 						
 					</div>
@@ -947,7 +947,7 @@ opts:
 						
 						
 							<br />
-							<i>Defined in: </i> <a href="../symbols/src/node-neoip_lib_webpeer.js.html">webpeer.js</a>.
+							<i>Defined in: </i> <a href="../symbols/src/webpeer.js.html">webpeer.js</a>.
 						
 						
 					</div>
@@ -982,7 +982,7 @@ opts:
 						probe webpeer and notify the callback once completed
 						
 							<br />
-							<i>Defined in: </i> <a href="../symbols/src/node-neoip_lib_webpeer.js.html">webpeer.js</a>.
+							<i>Defined in: </i> <a href="../symbols/src/webpeer.js.html">webpeer.js</a>.
 						
 						
 					</div>
@@ -1023,7 +1023,7 @@ opts:
 - url_builder_oload_t implementation is complete and much more complex
 						
 							<br />
-							<i>Defined in: </i> <a href="../symbols/src/node-neoip_lib_webpeer.js.html">webpeer.js</a>.
+							<i>Defined in: </i> <a href="../symbols/src/webpeer.js.html">webpeer.js</a>.
 						
 						
 					</div>
@@ -1063,7 +1063,7 @@ opts:
 <!-- ============================== footer ================================= -->
 		<div class="fineprint" style="clear:both">
 			
-			Documentation generated by <a href="http://code.google.com/p/jsdoc-toolkit/" target="_blank">JsDoc Toolkit</a> 2.4.0 on Fri Aug 13 2010 20:33:33 GMT+0200 (CEST)
+			Documentation generated by <a href="http://code.google.com/p/jsdoc-toolkit/" target="_blank">JsDoc Toolkit</a> 2.4.0 on Sat Aug 14 2010 03:07:59 GMT+0200 (CEST)
 		</div>
 	</body>
 </html>

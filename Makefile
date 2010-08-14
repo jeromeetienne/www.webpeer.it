@@ -6,7 +6,7 @@ all:
 doc: myjsdoc
 
 myjsdoc:
-	(cd ../node-neoip/lib && jsrun.sh -d=../mw/docs/jsdoc .)
+	(cd ../node-neoip/lib && jsrun.sh -d=../../mw/docs/jsdoc .)
 
 server:
 	jekyll --server
