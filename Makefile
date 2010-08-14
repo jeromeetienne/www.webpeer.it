@@ -3,6 +3,8 @@
 
 all:
 
+PWD := $(shell pwd)
+
 doc: myjsdoc
 
 myjsdoc:
@@ -10,3 +12,7 @@ myjsdoc:
 
 server:
 	jekyll --server
+
+import_webpeerjs:
+	(cd ../node-neoip/web_build && DESTDIR=$(PWD)/js make)
+	
