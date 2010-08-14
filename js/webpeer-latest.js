@@ -208,9 +208,12 @@ exports.base64	= base64;
 });require.module('casti_ctrl_t', function(exports, require) {
 // start module 
 
-var neoip_rpc	= require('./neoip_rpc_node');
+// system dependancies
 var sys		= require('sys');
-var underscore	= require('../vendor/underscore/underscore')._; underscore.noConflict();
+// local dependancies
+var project_path= "..";
+var neoip_rpc	= require(project_path+'/lib/neoip_rpc_node');
+var equiv	= require(project_path+'/vendor/node-helpers/equiv').equiv;
 
 /**
 */
@@ -351,7 +354,7 @@ var casti_ctrl_t	= function(ctor_opts){
 	var last_event_data	= null;
 	var notify_event	= function(event_type, event_data){
 		// return if current event is equal to last event
-		if( event_type == last_event_type && underscore.isEqual(event_data, last_event_data) )
+		if( event_type == last_event_type && equiv(event_data, last_event_data) )
 			return;
 		// backup current event_type/event_data
 		last_event_data	= event_data;
