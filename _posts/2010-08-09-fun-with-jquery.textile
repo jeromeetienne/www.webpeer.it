@@ -11,7 +11,7 @@ Here is a little jquery script to _webpeerize_ all the images in your page:
 
 
 {% highlight html %}
-<script type="text/javascript" src="webpeer.js"></script>
+<script type="text/javascript" src="http://webpeer.it/js/webpeer.js"></script>
 <script>
 	webpeer.ready(function(){
 		$("img").each(function(){
@@ -22,5 +22,7 @@ Here is a little jquery script to _webpeerize_ all the images in your page:
 {% endhighlight %}
 
 Now your images will be downloaded with _p2p efficiency_. Pretty simple no ?
+just download <a href="http://webpeer.it/js/webpeer.js">webpeer.js</a>.
 
 It would be as simple to webpeerize flash @<object>@ or video @<source>@.
+
