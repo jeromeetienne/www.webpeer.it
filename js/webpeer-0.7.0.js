@@ -1,4 +1,3 @@
-
 /**
  * This file will be prepended to webpeer.js during the builder
 */
@@ -24,7 +23,7 @@ if (!window.console)
 // Brequire - CommonJS support for the browser
 function require(path) {
   var module = require.modules[path]
-  if(!module) console.log("couldn't find module for: " + path)
+  if(!module) throw("couldn't find module for: " + path)
   if(!module.exports) {
     module.exports = {}
     module.call(module.exports, module.exports, bind(path))
@@ -43,8 +42,9 @@ function bind(path) {
 }
 
 require.module = function(path, fn) {
-  require.modules["./" + path] = fn
-};require.module('base64', function(exports, require) {
+  require.modules[path] = fn
+};
+require.module('./base64', function(exports, require) {
 // start module 
 
 /**
@@ -205,7 +205,7 @@ exports.base64	= base64;
 
 
 // end module
-});require.module('casti_ctrl_t', function(exports, require) {
+});require.module('./casti_ctrl_t', function(exports, require) {
 // start module 
 
 // system dependancies
@@ -392,7 +392,7 @@ exports.create	= casti_ctrl_t.create;
 
 
 // end module
-});require.module('casto_testclient_t', function(exports, require) {
+});require.module('./casto_testclient_t', function(exports, require) {
 // start module 
 
 // import the required dependancies
@@ -543,7 +543,7 @@ exports.create	= casto_testclient_t.create;
 
 
 // end module
-});require.module('collection', function(exports, require) {
+});require.module('./collection', function(exports, require) {
 // start module 
 
 var collection	= function(){
@@ -654,7 +654,7 @@ exports.collection	= collection;
 
 
 // end module
-});require.module('neoip_app_detect', function(exports, require) {
+});require.module('./neoip_app_detect', function(exports, require) {
 // start module 
 
 // import required modules
@@ -686,7 +686,7 @@ var disc_app_cache_contain	= function(app_suffix){ return app_suffix in disc_app
 var disc_app_cache_get		= function(app_suffix){ return disc_app_cache[app_suffix];	}
 var disc_app_cache_clear	= function(app_suffix){ disc_app_cache	= {};			}
 
-
+// TODO put this function elsewhere
 var app_available	= function(app_suffix){
 	if( !disc_app_cache_contain(app_suffix) )		return false;
 	if( disc_app_cache_get(app_suffix).version == false )	return false;
@@ -700,14 +700,19 @@ var app_available	= function(app_suffix){
  * @param {function(root_url, version)} success_cb notified if app is found
  * @param {function(error)} failure_cb notified if app is not found
 */
-var discover_app	= function(app_suffix, success_cb, failure_cb){
+var discover_app	= function(ctor_opts){
+	// copy ctor_opts + set default values if needed
+	var app_suffix	= ctor_opts.app_suffix	|| console.assert(ctor_opts.app_suffix);
+	var success_cb	= ctor_opts.success_cb	|| function(){};
+	var failure_cb	= ctor_opts.failure_cb	|| function(){};
+	var nocache	= ctor_opts.nocache	|| false;
+	var verbose	= ctor_opts.verbose	|| 0;
 	// sanity check
-	console.assert(success_cb);
 	console.assert(app_suffix == "oload" || app_suffix == "casti" || app_suffix == "casto");
 	// if callback are not specified, use a dummy one
 	if(!failure_cb)	failure_cb = function(){};
 	// handle cache
-	if(app_suffix in disc_app_cache){
+	if(app_suffix in disc_app_cache && !nocache ){
 		var cache_item	= disc_app_cache[app_suffix];
 		if( cache_item.version === false ){
 			setTimeout(function(){failure_cb(true);}, 0);
@@ -797,9 +802,9 @@ var version_compare	= function(version1, version2){
 
 // defined the minimal version for each apps
 var webpack_versions_min	= {
-	"oload"	: "0.0.1",
-	"casto"	: "0.0.1",
-	"casti"	: "0.0.2"
+	oload	: "0.0.1",
+	casto	: "0.0.1",
+	casti	: "0.0.2"
 };
 
 /**
@@ -836,16 +841,26 @@ var webpack_status	= function(){
  * 
  * @param callback {Function} callback notified "toinstall", "toupgrade", "installed"
 */
-var discover_webpack	= function(callback){
-	var completed_cb	= function(){
+var discover_webpack	= function(ctor_opts){
+	// copy ctor_opts + set default values if needed
+	var completed_cb= ctor_opts.completed_cb	|| function(){};
+	var nocache	= ctor_opts.nocache		|| false;
+	// internal vars
+	var nprobe	= 3;
+	var callback	= function(){
+		nprobe	-= 1;
+		if( nprobe > 0 )	return;
 		var status	= webpack_status();
-		if( status == null )	return;
-		callback(status);
+		completed_cb(status);
 	}
 	// launch the discovery of each app
-	var versions_min	= webpack_versions_min;	
-	for(var app_suffix in versions_min){
-		discover_app(app_suffix, completed_cb, completed_cb);		
+	for(var app_suffix in webpack_versions_min){
+		discover_app({
+			app_suffix	: app_suffix,
+			nocache		: nocache,
+			success_cb	: callback,
+			failure_cb	: callback
+		})
 	}
 }
 
@@ -861,14 +876,14 @@ exports.cache_clear		= disc_app_cache_clear;
 exports.avail		= app_available;
 exports.probe		= discover_app;
 exports.webpack_probe	= discover_webpack;
-exports.webpack_avail 	= function(){ return webpack_status == "installed"; };
+exports.webpack_avail 	= function(){ return webpack_status() == "installed"; };
 exports.webpack_status	= webpack_status;
 exports.clear		= disc_app_cache_clear;
 
 
 
 // end module
-});require.module('neoip_jsonp_call', function(exports, require) {
+});require.module('./neoip_jsonp_call', function(exports, require) {
 // start module 
 
 /**
@@ -944,7 +959,7 @@ exports.jsonp_call	= jsonp_call;
 
 
 // end module
-});require.module('neoip_rpc_node', function(exports, require) {
+});require.module('./neoip_rpc_node', function(exports, require) {
 // start module 
 
 var http	= require('http');
@@ -1046,7 +1061,7 @@ exports.rpc_call	= rpc_call;
 
 
 // end module
-});require.module('neoip_rpc_web', function(exports, require) {
+});require.module('./neoip_rpc_web', function(exports, require) {
 // start module 
 
 
@@ -1142,7 +1157,7 @@ exports.rpc_call	= rpc_call;
 
 
 // end module
-});require.module('url_builder_casto', function(exports, require) {
+});require.module('./url_builder_casto', function(exports, require) {
 // start module 
 
 /**
@@ -1174,7 +1189,7 @@ exports.create	= create;
 
 
 // end module
-});require.module('url_builder_oload_t', function(exports, require) {
+});require.module('./url_builder_oload_t', function(exports, require) {
 // start module 
 
 // import required modules
@@ -1453,27 +1468,30 @@ exports.create		= url_builder_oload_t.create;
 
 
 // end module
-});require.module('webpeer', function(exports, require) {
+});require.module('./webpeer', function(exports, require) {
 // start module 
 
 // import required modules
-var app_detect	= require('./neoip_app_detect');
-var url_builder_oload_t= require('./url_builder_oload_t');
+var app_detect		= require('./neoip_app_detect');
+var url_builder_oload_t	= require('./url_builder_oload_t');
 
 var verbose	= 1;
+var webpeer	= {};
 
 /**
  * probe webpeer and notify the callback once completed
  * 
  * @param completed_cb {function} callback notified on completion completed(avail){}
 */
-webpeer_ready	= function(completed_cb){
-	// discover neoip-oload
-	app_detect.webpack_probe(function(status){
-		if( status == "toinstall" )	completed_cb(false);
-		else if( status == "toupgrade")	completed_cb(true);
-		else if( status == "installed")	completed_cb(true);
-		else console.assert(false);
+webpeer.ready	= function(completed_cb){
+	// discover neoip-webpack
+	app_detect.webpack_probe({
+		completed_cb	: function(status){
+			if( status == "toinstall" )	completed_cb(false);
+			else if( status == "toupgrade")	completed_cb(true);
+			else if( status == "installed")	completed_cb(true);
+			else console.assert(false);
+		}
 	})
 };
 
@@ -1481,7 +1499,7 @@ webpeer_ready	= function(completed_cb){
 /**
  * @returns {boolean} true if webpeer is available, false otherwise
 */
-webpeer_avail	= function(){
+webpeer.avail	= function(){
 	return app_detect.webpack_status() == "installed";
 }
 
@@ -1492,18 +1510,60 @@ webpeer_avail	= function(){
  * 
  * @param url {string} original url to webpeerify
 */
-webpeer_url	= function(url){
-	if( !webpeer_avail() )	return url;
+webpeer.url	= function(url){
+	if( !webpeer.avail() )	return url;
 	return url_builder_oload_t.create(url)
 			.set('outter_uri', app_detect.cache_get('oload').root_url)
 			.to_string();
 }
 
 
+/**
+ * Continuously probe webpeer and notify on status change
+*/
+webpeer.monitor	= function(ctor_opts){
+	if( typeof(ctor_opts) == "function" )	ctor_opts = {completed_cb: ctor_opts};
+	// copy ctor_opts + set default values if needed
+	var completed_cb= ctor_opts.completed_cb	|| function(){};
+	var delay	= ctor_opts.delay		|| 1*1000;
+	// class variables
+	var prev_status	= null;
+	var timer_cb	= function(){
+		app_detect.webpack_probe({
+			completed_cb	: function(status){
+				if( status != prev_status ){
+					prev_status	= status;
+					completed_cb(status);
+				}
+				setTimeout(timer_cb, delay);
+			},
+			nocache		: true
+		})
+	}
+	// launch initial timer
+	setTimeout(timer_cb, 0);
+}
+
+/**
+ * @param {string} the dom element id of the img tag
+*/
+webpeer.badge	= function(elem_id){
+	webpeer.monitor(function(){
+		var elem	= document.getElementById("webpeer_badge");
+		elem.src	= "http://webpeer.it/images/badge/" + (webpeer.avail() ? 'accept.png' : 'exclamation.png');
+		if( webpeer.avail() ){
+			elem.title	= "You are a web peer. Welcome!";
+		}else{
+			elem.title	= "You are not yet a web peer. Click to be one.";		
+		}
+	});
+}
+
 // exports public functions
-exports.ready	= webpeer_ready;
-exports.avail	= webpeer_avail;
-exports.url	= webpeer_url;
+exports.ready	= webpeer.ready;
+exports.avail	= webpeer.avail;
+exports.url	= webpeer.url;
+exports.badge	= webpeer.badge;
 
 
 // end module
