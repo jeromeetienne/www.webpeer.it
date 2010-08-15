@@ -1545,10 +1545,11 @@ webpeer.monitor	= function(ctor_opts){
 }
 
 /**
+ * - this function is web-only
  * @param {string} the dom element id of the img tag
 */
 webpeer.badge	= function(elem_id){
-	webpeer.monitor(function(){
+	webpeer.ready(function(){
 		var elem	= document.getElementById("webpeer_badge");
 		elem.src	= "http://webpeer.it/images/badge/" + (webpeer.avail() ? 'accept.png' : 'exclamation.png');
 		if( webpeer.avail() ){
