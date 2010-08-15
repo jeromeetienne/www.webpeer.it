@@ -19,4 +19,4 @@ Just cut/paste the following content in your page.
 <script>webpeer.badge('webpeer_badge');</script>
 {% endhighlight %}
 
-The badge is dynamic to offer WebPeer installation, green when webpeer is reachable, red otherwise.
+The badge is dynamic to offer webpeer installation, green when webpeer is reachable, red otherwise.

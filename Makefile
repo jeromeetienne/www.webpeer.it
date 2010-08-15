@@ -23,3 +23,4 @@ webpeerjs_import:
 
 webpeerjs_clean:
 	rm -f js/webpeer.js js/webpeer-*.js js/webpeer-*-min.js
+	rm -f images/badge/*
