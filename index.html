@@ -3,30 +3,87 @@ layout: default
 title: Webpeer.it home
 ---
 
+<script type="text/Javascript" src="js/jquery/jquery-1.4.2.min.js"></script>
+<script type="text/javascript" src="js/jquery/plugins/jquery.sudoSlider.min.js"></script>
+<style>
+#slider {
+    width:696px;
+}
+#slider img{
+    border:none;
+}
+#slider ul, #slider li{
+    margin:0;
+    padding:0;
+    list-style:none;
+}
+#slider li { 
+    width:696px;
+    overflow:hidden; 
+}
+</style>
 
-<hr>
-<h1>Overview</h1>
-Webpeer seamlessly unifies web and p2p to leverage the best both worlds in a snap.
-It is efficient, robust and transparent.
-<hr>
-<h1>Efficient</h1>
-Webpeer brings <strong>p2p efficiency</strong> to the web.
-People in the web peer cloud collaborates with each other.
-Their sharing allows a <strong>reduced server load</strong>
-and a <strong>faster downloads</strong> for the client.
-<hr>
-<h1>Robust</h1>
-Webpeer leverages content from <strong>multiple sources</strong>.
-This redundancy allows <strong>no single point of failure</strong>, that you can see in
-usual http client/server model.
-Thus you enjoy <strong>more reliable content delivery</strong>.
+<ul id="overview_link">
+	<li><a href="javascript:void(0)">Overview</a></li>
+	<li><a href="javascript:void(0)">Robust</a></li>
+	<li><a href="javascript:void(0)">Efficient</a></li>
+	<li><a href="javascript:void(0)">Transparent</a></li>
+</ul>
 
-<hr>
-<h1>Transparent</h1>
-Webpeer is transparently integrated to your web environnment without changing it.
-It has been designed to be <strong>non-intrusive</strong>.
-It is <strong>transparent for content</strong>. Use your unmodified files and streams now!
-It is <strong>transparent for software</strong>. Keep using your usual http clients and servers.
+<script type="text/javascript" >
+	$(function(){	
+		$("#slider").sudoSlider({
+		        prevNext:false,
+			startSlide: 4
+		});
+		$('#slider').sudoSlider(1);
+		$("#overview_link li:nth-child(1)").click(function(){
+			$('#slider').sudoSlider(1);
+		});
+		$("#overview_link li:nth-child(2)").click(function(){
+			$('#slider').sudoSlider(2);
+		});
+		$("#overview_link li:nth-child(3)").click(function(){
+			$('#slider').sudoSlider(3);
+		});
+		$("#overview_link li:nth-child(4)").click(function(){
+			$('#slider').sudoSlider(4);
+		});
+	});
+</script>
+<div id="slider" style="display: hidden">
+	<ul>
+		<li>
+			<h1>Overview</h1>
+			Webpeer seamlessly unifies web and p2p to leverage the best both worlds in a snap.
+			It is efficient, robust and transparent.
+		</li>
+		<li>
+			<h1>Efficient</h1>
+			Webpeer brings <strong>p2p efficiency</strong> to the web.
+			People in the web peer cloud collaborates with each other.
+			Their sharing allows a <strong>reduced server load</strong>
+			and a <strong>faster downloads</strong> for the client.
+		</li>
+		<li>
+			<h1>Robust</h1>
+			Webpeer leverages content from <strong>multiple sources</strong>.
+			This redundancy allows <strong>no single point of failure</strong>, that you can see in
+			usual http client/server model.
+			Thus you enjoy <strong>more reliable content delivery</strong>.
+		</li>
+		<li>
+			<h1>Transparent</h1>
+			Webpeer is transparently integrated to your web environnment without changing it.
+			It has been designed to be <strong>non-intrusive</strong>.
+			It is <strong>transparent for content</strong>. Use your unmodified files and streams now!
+			It is <strong>transparent for software</strong>. Keep using your usual http clients and servers.
+		</li>
+	</ul>
+</div>
+
+
+
 
 
 
@@ -41,40 +98,3 @@ It is <strong>transparent for software</strong>. Keep using your usual http clie
 </div>
   
 
-<!-- font experiment 	// from http://code.google.com/webfonts/preview -->
-<link  href="//fonts.googleapis.com/css?family=Vollkorn:regular,bold" rel="stylesheet" type="text/css" >
-<link  href="//fonts.googleapis.com/css?family=Crimson+Text:regular" rel="stylesheet" type="text/css" >
-<style>
-.supertitle {
-	font-family	: 'Vollkorn', serif;
-	font-size	: 90px;
-	font-style	: normal;
-	font-weight	: 700;
-	text-shadow	: 6px 6px 6px #ccc;
-	text-decoration	: none;
-	text-transform	: none;
-	letter-spacing	: 0.019em;
-	word-spacing	: 0em;
-	line-height	: 1em;
-
-	text-align: center;
-}
-.superslogan {
-	margin		: 0.8em;
-	text-align	: right;
-}
-.sloganfont {
-	font-family	: 'Crimson Text', serif;
-	font-size	: 24px;
-	font-style	: normal;
-	font-weight	: 700;
-	text-shadow	: 2px 2px 2px #aaa;
-	text-decoration	: none;
-	text-transform	: none;
-	letter-spacing	: 0.083em;
-	word-spacing	: 0em;
-	line-height	: 1em;
-}
-</style>
-<div class="supertitle">Web Peer . it</div>
-<div class="superslogan sloganfont">Web Ubiquity + p2p Efficiency</div>

@@ -10,47 +10,53 @@
 
    <!-- Homepage CSS -->
    <link rel="stylesheet" href="/css/screen.css" type="text/css" media="screen, projection" />
+   <link rel="stylesheet" href="/css/post.css" type="text/css" media="screen, projection" />
 </head>
 <body>
 
 <div class="site">
-  <div class="title">
-    <a class="main"  href="/">Webpeer.it</a>
-    <a class="extra" href="/">Home</a>
-    <a class="extra" href="/blog">Blog</a>
-    <a class="extra" href="/download">Download</a>
-    <a class="extra" href="/docs">Docs</a>
-    <a class="extra" href="/about">About</a>
-  </div>
+
+<!-- font experiment 	// from http://code.google.com/webfonts/preview -->
+<link  href="http://fonts.googleapis.com/css?family=Vollkorn:regular,bold" rel="stylesheet" type="text/css" >
+<link  href="http://fonts.googleapis.com/css?family=Crimson+Text:regular" rel="stylesheet" type="text/css" >
+<style>
+</style>
+	<div class="header">
+		<a href="/">
+			<div class="title">Web Peer . it</div>
+			<div class="slogan">Web Ubiquity + p2p Efficiency</div>
+		</a>
+		<div class="menu">
+			<a href="/">Home</a>
+			<a href="/blog">Blog</a>
+			<a href="/download">Download</a>
+			<a href="/docs">Docs</a>
+			<a href="/about">About</a>
+		</div>
+	</div>
   
-  {{ content }}
+	{{ content }}
   
-  <div class="footer">
-    <div class="contact">
-      <p>
-        Webpeer.it&nbsp;&nbsp;
-	<!-- webpeer badge start -->
-	<script type="text/javascript" src="http://webpeer.it/js/webpeer.js"></script>
-	<a href="http://webpeer.it"><img id="webpeer_badge" style="border-style: hidden" width="16" height="16"
-	src="http://webpeer.it/images/badge/wait16trans.gif" title="Probbing webpeer"/></a>
-	<script>webpeer.badge('webpeer_badge');</script>
-	<!-- webpeer badge end -->
-	<br/>
-        web ubiquity + p2p efficiency
-      </p>
-    </div>
-    <div class="contact">
-      <p>
-        <a href="http://wiki.github.com/jeromeetienne/mw/">wiki</a><br />
-      </p>
-      <p>
-          <a href="/about">about</a>
-      </p>
-      <p>
-	built at {{ site.time }}
-      </p>
-    </div>
-  </div>
+	<div class="footer">
+		<div class="contact">
+			Webpeer.it&nbsp;&nbsp;
+			<!-- webpeer badge start -->
+			<script type="text/javascript" src="http://webpeer.it/js/webpeer.js"></script>
+			<a href="http://webpeer.it"><img id="webpeer_badge" style="border-style: hidden" width="16" height="16"
+			src="http://webpeer.it/images/badge/wait16trans.gif" title="Probbing webpeer"/></a>
+			<script>webpeer.badge('webpeer_badge');</script>
+			<!-- webpeer badge end -->
+			<br>
+			web ubiquity + p2p efficiency
+		</div>
+		<div class="contact">
+			<a href="http://wiki.github.com/jeromeetienne/mw/">wiki</a>
+			|
+			<a href="/about">about</a>
+			<br>
+			Built at {{ site.time }}
+		</div>
+	</div>
 </div>
 
 
