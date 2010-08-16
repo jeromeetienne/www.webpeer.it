@@ -187,6 +187,29 @@ table {
     overflow	: hidden; 
 }
 
+#slider div a {
+	color		: black;
+	font-weight	: bolder;
+	text-decoration	: none;
+}
+
+#slider div a:hover {
+	text-decoration	: underline;
+}
+
+.slider_menu {
+	text-align: center;  
+}
+
+.slider_menu a {
+	font-weight	: bolder;
+	text-decoration	: none;
+}
+
+.slider_menu a:hover {
+	text-decoration	: underline;
+}
+
 /********************************************************************************/
 /********************************************************************************/
 /*	Footer									*/
