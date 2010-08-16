@@ -63,7 +63,7 @@ table {
 .site {
 	font-size	: 110%;
 	text-align	: justify;
-	width		: 640px;
+	width		: 800px;
 	margin		: 3em auto 2em auto;
 	line-height	: 1.5em;
 }
@@ -175,7 +175,7 @@ table {
 }
 
 #slider {
-    width	: 640px;
+    width	: 800px;
 }
 #slider ul, #slider li{
     margin	: 0;
@@ -183,7 +183,7 @@ table {
     list-style	: none;
 }
 #slider li { 
-    width	: 640px;
+    width	: 800px;
     overflow	: hidden; 
 }
 
