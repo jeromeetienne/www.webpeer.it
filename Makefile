@@ -11,7 +11,11 @@ myjsdoc:
 	(cd ../node-neoip/lib && jsrun.sh -d=../../mw/docs/jsdoc .)
 
 server:
-	jekyll --server
+	~/.gem/ruby/1.8/bin/jekyll --server
+	
+generate:
+	rm -rf _site
+	/home/jerome/work/jekyll/bin/jekyll
 
 #################################################################################
 #		webpeerjs handling						#
