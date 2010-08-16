@@ -4,28 +4,44 @@
 all:
 
 PWD		:= $(shell pwd)
-JEKYLL_DST	:=..
-NODE_NEOIP_DIR	:= ../../node-neoip
+JEKYLL_DST	:= /home/jerome/webwork/mw
+NODE_NEOIP_DIR	:= /home/jerome/webwork/node-neoip
 
-doc: myjsdoc
+build:	jsdoc_build webpeerjs_import
 
-myjsdoc:
-	(cd $(NODE_NEOIP_DIR)/lib && jsrun.sh -d=../../mw/real_root/docs/jsdoc .)
+clean: jsdoc_clean webpeerjs_clean
+
 
 server:
-	~/.gem/ruby/1.8/bin/jekyll --server
-	
-generate:
+	lighttpd -f lighttpd.conf  -D
+		
+upload: jekyll_build
+	(cd $(JEKYLL_DST) && git checkout gh-pages && git add . && git commit -a -m 'new build' && git push)
+
+jekyll_build:
+	(cd $(JEKYLL_DST) && git checkout gh-pages)
 	touch $(JEKYLL_DST)/.nojekyll
 	/home/jerome/work/jekyll/bin/jekyll . $(JEKYLL_DST)
+
+#################################################################################
+#		doc handling							#
+#################################################################################
+
+doc: jsdoc_build
+
+jsdoc_build:
+	(cd $(NODE_NEOIP_DIR)/lib && jsrun.sh -d=$(PWD)/docs/jsdoc .)
+
+jsdoc_clean:
+	rm -rf docs/jsdoc/*
 
 #################################################################################
 #		webpeerjs handling						#
 #################################################################################
 
 webpeerjs_import:
-	(cd ../node-neoip/web_build && DESTDIR=$(PWD)/js make)
-	(cp ../node-neoip/images/badge/* images/badge)
+	(cd $(NODE_NEOIP_DIR)/web_build && DESTDIR=$(PWD)/js make)
+	(cp $(NODE_NEOIP_DIR)/images/badge/* images/badge)
 
 webpeerjs_clean:
 	rm -f js/webpeer.js js/webpeer-*.js js/webpeer-*-min.js
