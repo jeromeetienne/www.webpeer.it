@@ -1,0 +1,233 @@
+/*****************************************************************************/
+/*
+/* Common
+/*
+/*****************************************************************************/
+
+/* Global Reset */
+
+* {
+  margin: 0;
+  padding: 0;
+}
+
+html, body {
+  height: 100%;
+}
+
+body {
+  background-color	: white;
+  font		: 16px helvetica, arial, clean, sans-serif;
+  *font-size: small;
+  text-align	: center;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-size: 100%;
+}
+
+h1 {
+  margin-top	: 1em;
+  margin-bottom	: 0.5em;
+  font-size	: larger;
+}
+
+p {
+  margin: 1em 0;
+}
+
+a {
+  color: #00a;
+}
+
+a:hover {
+  color: black;
+}
+
+a:visited {
+  color: #a0a;
+}
+
+table {
+  font-size: inherit;
+  font: 100%;
+}
+
+
+/*****************************************************************************/
+/*
+/* Site
+/*
+/*****************************************************************************/
+
+.site {
+	font-size	: 110%;
+	text-align	: justify;
+	width		: 800px;
+	margin		: 3em auto 2em auto;
+	line-height	: 1.5em;
+}
+
+
+
+
+/********************************************************************************/
+/********************************************************************************/
+/*	Header title/slogan							*/
+/********************************************************************************/
+/********************************************************************************/
+.site .header {
+	border-bottom: thin;
+}
+
+.site .header a {
+	text-decoration:	none;
+}
+
+.site .header .title {	/* From google font directory */
+	font-family	: 'Vollkorn', serif;
+	font-size	: 90px;
+	font-style	: normal;
+	font-weight	: 700;
+	text-shadow	: 6px 6px 6px #ccc;
+	text-decoration	: none;
+	text-transform	: none;
+	letter-spacing	: 0.019em;
+	word-spacing	: 0em;
+	line-height	: 0em;
+}
+.site .header .slogan {	/* From google font directory */
+	font-family	: 'Crimson Text', serif;
+	font-size	: 24px;
+	font-style	: normal;
+	font-weight	: 700;
+	text-shadow	: 2px 2px 2px #aaa;
+	text-decoration	: none;
+	text-transform	: none;
+	letter-spacing	: 0.083em;
+	word-spacing	: 0em;
+	line-height	: 0.5em;
+}
+.site .header .title {
+	text-align	: center;
+	color		: #444;
+}
+.site .header .slogan {
+	margin		: 0.8em;
+	text-align	: right;
+	color		: #666;
+}
+
+/********************************************************************************/
+/********************************************************************************/
+/*	Header menu								*/
+/********************************************************************************/
+/********************************************************************************/
+.menu {
+	color		: #a00;
+	font-weight	: bold;
+	margin-top	: 2em;
+	margin-bottom	: 2em;
+	border-bottom	: thin;
+}
+
+  .site .menu a {
+    color: #a00;
+    text-decoration: none;
+  }
+
+  .site .menu a:hover {
+    color: black;
+  }
+
+  .site .menu a {
+    color: #aaa;
+    text-decoration: none;
+    margin-left: 1em;
+  }
+
+  .site .menu a:hover {
+    color: black;
+  }
+
+  .site .meta {
+    color: #aaa;
+  }
+  
+
+/********************************************************************************/
+/********************************************************************************/
+/*	sliders									*/
+/********************************************************************************/
+/********************************************************************************/
+  
+#slider li div {
+	border			: 2px solid #003B62;
+	background-color	: #B5CFE0;
+	border-radius		: 15px;
+	-moz-border-radius	: 15px;
+
+	margin			: 5px;
+	padding-top		: 0px;
+	padding-bottom		: 15px;
+	padding-right		: 15px;
+	padding-left		: 15px;
+}
+
+#slider {
+    width	: 800px;
+}
+#slider ul, #slider li{
+    margin	: 0;
+    padding	: 0;
+    list-style	: none;
+}
+#slider li { 
+    width	: 800px;
+    overflow	: hidden; 
+}
+
+#slider div a {
+	color		: black;
+	font-weight	: bolder;
+	text-decoration	: none;
+}
+
+#slider div a:hover {
+	text-decoration	: underline;
+}
+
+.slider_menu {
+	text-align: center;  
+}
+
+.slider_menu a {
+	font-weight	: bolder;
+	text-decoration	: none;
+}
+
+.slider_menu a:hover {
+	text-decoration	: underline;
+}
+
+/********************************************************************************/
+/********************************************************************************/
+/*	Footer									*/
+/********************************************************************************/
+/********************************************************************************/
+.site .footer {
+	font-size	: 80%;
+	color		: #666;
+	border-top	: 4px solid #eee;
+	margin-top	: 2em;
+	overflow	: hidden;
+}
+
+.site .footer .contact {
+	float		: left;
+	margin-right	: 3em;
+}
+
+.site .footer .contact a {
+	color		: #8085C1;
+}

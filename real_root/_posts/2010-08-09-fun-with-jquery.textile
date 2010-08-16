@@ -1,0 +1,28 @@
+---
+layout: post
+title: Fun with jQuery
+---
+
+h1. {{ page.title }}
+
+p(meta). 09 Aug 2010
+
+Here is a little jquery script to _webpeerize_ all the images in your page:
+
+
+{% highlight html %}
+<script type="text/javascript" src="http://webpeer.it/js/webpeer.js"></script>
+<script>
+	webpeer.ready(function(){
+		$("img").each(function(){
+			this.attr("src", webpeer.url(this.attr('src')) );
+		})
+	});
+</script>
+{% endhighlight %}
+
+Now your images will be downloaded with _p2p efficiency_. Pretty simple no ?
+just download <a href="http://webpeer.it/js/webpeer.js">webpeer.js</a>.
+
+It would be as simple to webpeerize flash @<object>@ or video @<source>@.
+

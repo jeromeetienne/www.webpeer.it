@@ -1,0 +1,22 @@
+---
+layout: post
+title: Webpeer badge is there!
+---
+
+h1. {{ page.title }}
+
+p(meta). 15 Aug 2010
+
+
+Just cut/paste the following content in your page.
+
+{% highlight html %}
+<a href="http://webpeer.it">
+	<img id="webpeer_badge" style="border-style: hidden" width="16"
+		height="16" src="http://webpeer.it/images/badge/wait16trans.gif"
+		title="Probbing webpeer"/>
+</a>
+<script>webpeer.badge('webpeer_badge');</script>
+{% endhighlight %}
+
+The badge is dynamic to offer webpeer installation, green when webpeer is reachable, red otherwise.
