@@ -5,11 +5,12 @@ all:
 
 PWD		:= $(shell pwd)
 JEKYLL_DST	:=..
+NODE_NEOIP_DIR	:= ../../node-neoip
 
 doc: myjsdoc
 
 myjsdoc:
-	(cd ../node-neoip/lib && jsrun.sh -d=../../mw/docs/jsdoc .)
+	(cd $(NODE_NEOIP_DIR)/lib && jsrun.sh -d=../../mw/real_root/docs/jsdoc .)
 
 server:
 	~/.gem/ruby/1.8/bin/jekyll --server
