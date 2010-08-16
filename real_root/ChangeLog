@@ -1,0 +1,3 @@
+* 2010/08/16 - Moved to .nojekyll at the root
+** needed because jekyll ignore _* basename and jsdoc is producing _global_.html
+** so i forked jekyll, fixed it. and generate the site myself
