@@ -110,12 +110,12 @@ table {
 }
 .site .header .title {
 	text-align	: center;
-	color		: #444;
+	color		: #222;
 }
 .site .header .slogan {
 	margin		: 0.8em;
 	text-align	: right;
-	color		: #666;
+	color		: #444;
 }
 
 /********************************************************************************/

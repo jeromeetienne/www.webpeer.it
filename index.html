@@ -13,7 +13,10 @@ title: Webpeer.it home
 		        prevNext:false,
 			startSlide: 2
 		});
+		$('#slider li div').css('display', 'block')
+		// trick to make animations onload
 		$('#slider').sudoSlider(1);
+		// hook all the buttons
 		$(".goto_slide_1").click(function(){	$('#slider').sudoSlider(1);     });
 		$(".goto_slide_2").click(function(){	$('#slider').sudoSlider(2);     });
 		$(".goto_slide_3").click(function(){	$('#slider').sudoSlider(3);     });
@@ -21,7 +24,7 @@ title: Webpeer.it home
 	});
 </script>
 
-<div id="slider" style="display: hidden;">
+<div id="slider">
 	<ul>
 		<li>
 			<div>
@@ -34,10 +37,14 @@ title: Webpeer.it home
 				and
 				<a href="javascript:void(0)" class="goto_slide_4">transparent</a>
 				.
+				<br/>
+				<br/>
+				<br/>
+				<br/>
 			</div>
 		</li>
 		<li>
-			<div>
+			<div style="display: none;">
 				<h1>Efficient</h1>
 				Webpeer brings <strong>p2p efficiency</strong> to the web.
 				People in the web peer cloud collaborates with each other.
@@ -46,7 +53,7 @@ title: Webpeer.it home
 			</div>
 		</li>
 		<li>
-			<div>
+			<div style="display: none;">
 				<h1>Robust</h1>
 				Webpeer leverages content from <strong>multiple sources</strong>.
 				This redundancy allows <strong>no single point of failure</strong>, that you can see in
@@ -55,7 +62,7 @@ title: Webpeer.it home
 			</div>
 		</li>
 		<li>
-			<div>
+			<div style="display: none;">
 				<h1>Transparent</h1>
 				Webpeer is transparently integrated to your web environnment without changing it.
 				It has been designed to be <strong>non-intrusive</strong>.
