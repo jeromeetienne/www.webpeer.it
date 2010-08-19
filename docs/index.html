@@ -3,7 +3,26 @@ layout: default
 title: Webpeer.it documentation
 ---
 
+<script src="http://cdn.jquerytools.org/1.2.4/jquery.tools.min.js"></script>
 <div>
-	The whole api <a href="jsdoc"> reference</a></li>
+	The whole api <a href="jsdoc"title="jsdoc <br/>cest super"> reference</a>
 </div>
-  
+
+<style>
+/* tooltip styling. by default the element to be styled is .tooltip  */
+.tooltip {
+	display		: none;
+	background	: transparent url(/images/jquery.tools/tooltip/black_arrow.png);
+	font-size	: 12px;
+	height		: 70px;
+	width		: 160px;
+	padding		: 25px;
+	color		: #fff;
+}
+</style>
+
+<script>  
+	$("[title]").tooltip({ effect: 'fade'});
+</script>
+
+
