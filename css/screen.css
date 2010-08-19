@@ -131,29 +131,17 @@ table {
 	border-bottom	: thin;
 }
 
-  .site .menu a {
-    color: #a00;
-    text-decoration: none;
-  }
+.site .menu a {
+	color		: #999;
+	text-decoration	: none;
+	text-shadow	: white 2px 2px, white -2px 2px;
+	margin-left	: 1em;
+}
 
-  .site .menu a:hover {
-    color: black;
-  }
-
-  .site .menu a {
-    color: #aaa;
-    text-decoration: none;
-    margin-left: 1em;
-  }
-
-  .site .menu a:hover {
-    color: black;
-  }
-
-  .site .meta {
-    color: #aaa;
-  }
-  
+.site .menu a:hover {
+	color		: #444;
+}
+ 
 
 /********************************************************************************/
 /********************************************************************************/
@@ -163,9 +151,12 @@ table {
   
 #slider li div.slide {
 	background		: -webkit-gradient(linear, left top, left bottom, from(#ccc), to(#ddd));
+
 	box-shadow		: 0px 0px 10px #000000;
 	-webkit-box-shadow	: 0px 0px 10px #000000;
+
 	background-color	: #eee;
+
 	border-radius		: 15px;
 	-moz-border-radius	: 15px;
 	-webkit-border-radius	: 15px;
@@ -211,24 +202,24 @@ table {
 	text-decoration		: none;
 	background		: -webkit-gradient(linear, 0% 0%, 0% 100%, from(#bbb), to(#bbb), color-stop(.5,#ddd));
 
-	box-shadow		: 0px 0px 7px #888;
-	-webkit-box-shadow	: 0px 0px 7px #888;
+	box-shadow		: 0px 0px 0.5em #888;
+	-webkit-box-shadow	: 0px 0px 0.5em #888;
 
 	background-color	: #fff;
 
-	border-radius		: 13px;
-	-moz-border-radius	: 13px;
-	-webkit-border-radius	: 13px;
+	border-radius		: 0.5em;
+	-moz-border-radius	: 0.5em;
+	-webkit-border-radius	: 0.5em;
 
-	margin			: 10px;
-	padding			: 10px;
+	margin			: 0.5em;
+	padding			: 0.5em;
 }
 
 .slider_menu a:hover {
 	/*text-decoration		: underline;*/
 	background		: -webkit-gradient(linear, 0% 0%, 0% 100%, from(#999), to(#999), color-stop(.5,#bbb));
-	box-shadow		: 0px 0px 7px #666;
-	-webkit-box-shadow	: 0px 0px 7px #666;
+	box-shadow		: 0px 0px 0.5em #666;
+	-webkit-box-shadow	: 0px 0px 0.5em #666;
 }
 
 /********************************************************************************/
