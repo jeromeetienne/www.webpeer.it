@@ -16,20 +16,20 @@ html, body {
 }
 
 body {
-  background-color	: white;
-  font		: 16px helvetica, arial, clean, sans-serif;
-  *font-size: small;
-  text-align	: center;
+	background-color: #eee;
+	font		: 16px helvetica, arial, clean, sans-serif;
+	*font-size	: small;
+	text-align	: center;
 }
 
 h1, h2, h3, h4, h5, h6 {
-  font-size: 100%;
+  font-size	: 100%;
 }
 
 h1 {
-  margin-top	: 1em;
-  margin-bottom	: 0.5em;
-  font-size	: larger;
+	margin-top	: 1em;
+	margin-bottom	: 0.5em;
+	font-size	: larger;
 }
 
 p {
@@ -162,6 +162,7 @@ table {
 /********************************************************************************/
   
 #slider li div.slide {
+	background		: -webkit-gradient(linear, left top, left bottom, from(#ccc), to(#ddd));
 	box-shadow		: 0px 0px 10px #000000;
 	-webkit-box-shadow	: 0px 0px 10px #000000;
 	background-color	: #eee;
@@ -177,16 +178,16 @@ table {
 }
 
 #slider {
-    width	: 800px;
+	width		: 800px;
 }
 #slider ul, #slider li{
-    margin	: 0;
-    padding	: 0;
-    list-style	: none;
+	margin		: 0;
+	padding		: 0;
+	list-style	: none;
 }
 #slider li { 
-    width	: 800px;
-    overflow	: hidden; 
+	width		: 800px;
+	overflow	: hidden; 
 }
 
 #slider div.slide a {
@@ -201,30 +202,33 @@ table {
 
 .slider_menu {
 	text-align	: center;
-	margin-top	: 10px;
+	margin-top	: 15px;
 }
 
 .slider_menu a {
-	color	: #000;
-	font-weight	: bolder;
-	text-decoration	: none;
+	color			: #000;
+	font-weight		: bolder;
+	text-decoration		: none;
+	background		: -webkit-gradient(linear, 0% 0%, 0% 100%, from(#bbb), to(#bbb), color-stop(.5,#ddd));
 
-	box-shadow		: 0px 0px 10px #000000;
-	-webkit-box-shadow	: 0px 0px 10px #000000;
+	box-shadow		: 0px 0px 7px #888;
+	-webkit-box-shadow	: 0px 0px 7px #888;
 
 	background-color	: #fff;
 
-	border-radius		: 15px;
-	-moz-border-radius	: 15px;
-	-webkit-border-radius	: 15px;
+	border-radius		: 13px;
+	-moz-border-radius	: 13px;
+	-webkit-border-radius	: 13px;
 
-	margin			: 5px;
-	padding			: 5px;
+	margin			: 10px;
+	padding			: 10px;
 }
 
 .slider_menu a:hover {
 	/*text-decoration		: underline;*/
-	background-color	: #ddd;
+	background		: -webkit-gradient(linear, 0% 0%, 0% 100%, from(#999), to(#999), color-stop(.5,#bbb));
+	box-shadow		: 0px 0px 7px #666;
+	-webkit-box-shadow	: 0px 0px 7px #666;
 }
 
 /********************************************************************************/
