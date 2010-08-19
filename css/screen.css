@@ -161,7 +161,7 @@ table {
 /********************************************************************************/
 /********************************************************************************/
   
-#slider li div {
+#slider li div.slide {
 	border			: 2px solid #003B62;
 	background-color	: #B5CFE0;
 	border-radius		: 15px;
@@ -187,13 +187,13 @@ table {
     overflow	: hidden; 
 }
 
-#slider div a {
+#slider div.slide a {
 	color		: black;
 	font-weight	: bolder;
 	text-decoration	: none;
 }
 
-#slider div a:hover {
+#slider div.slide a:hover {
 	text-decoration	: underline;
 }
 
