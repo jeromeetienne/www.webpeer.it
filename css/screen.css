@@ -162,10 +162,12 @@ table {
 /********************************************************************************/
   
 #slider li div.slide {
-	border			: 2px solid #003B62;
-	background-color	: #B5CFE0;
+	box-shadow		: 0px 0px 10px #000000;
+	-webkit-box-shadow	: 0px 0px 10px #000000;
+	background-color	: #eee;
 	border-radius		: 15px;
 	-moz-border-radius	: 15px;
+	-webkit-border-radius	: 15px;
 
 	margin			: 5px;
 	padding-top		: 0px;
@@ -198,16 +200,31 @@ table {
 }
 
 .slider_menu {
-	text-align: center;  
+	text-align	: center;
+	margin-top	: 10px;
 }
 
 .slider_menu a {
+	color	: #000;
 	font-weight	: bolder;
 	text-decoration	: none;
+
+	box-shadow		: 0px 0px 10px #000000;
+	-webkit-box-shadow	: 0px 0px 10px #000000;
+
+	background-color	: #fff;
+
+	border-radius		: 15px;
+	-moz-border-radius	: 15px;
+	-webkit-border-radius	: 15px;
+
+	margin			: 5px;
+	padding			: 5px;
 }
 
 .slider_menu a:hover {
-	text-decoration	: underline;
+	/*text-decoration		: underline;*/
+	background-color	: #ddd;
 }
 
 /********************************************************************************/
