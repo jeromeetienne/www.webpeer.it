@@ -1,7 +1,12 @@
+* 2010/20/16
+** registered irc channel on freenode
+
+
 * 2010/07/16
 ** homepage menu refactoring
 ** added www.webpeer.it to CNAME webpeer.it
 ** moved site in its own repository http://github.com/jeromeetienne/www.webpeer.it
+** got sliders on the homepage
 
 * 2010/08/16 - Moved to .nojekyll at the root
 ** needed because jekyll ignore _* basename and jsdoc is producing _global_.html
