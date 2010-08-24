@@ -1,0 +1,33 @@
+---
+layout: post
+---
+
+h1. {{ page.title }}
+
+p(meta). 24 Aug 2010
+
+Did you ever upgrade your computer on a release day ? I bet you did, we all do. This is why it is so slow. The servers bandwidth is limited and we are all hogging it. It could not be a more frustrating moment for slowness, i'm all excited about the new release and it is coming slower than a lazy snail. Wouldn't it be nice to share the packages i already got with other ubuntu members and get last ubuntu sooner thanks to faster download ?
+
+Well i got a good news. <a href="http://webpeer.it">WebPeer</a> makes it possible in less than 5min. For that, we gonna use <a href="/blog/2010/08/24/webpeer-http-proxy/">webpeer-http-proxy</a>. It is an <a href="http://en.wikipedia.org/wiki/Http_proxy">http proxy</a> using <a href="/blog/2010/08/24/webpeer-binding-for-nodejs/">binding for nodejs</a> we described in a previous <a href="/blog/2010/08/24/webpeer-http-proxy/">post</a>. Once you installed it, run the following. This will simply <b>reroute .deb files thru webpeer</b>, and leave the rest alone.
+
+{% highlight bash %}
+node webpeer-http-proxy.js .deb
+{% endhighlight %}
+
+Now that the http proxy is running, lets try an <b>apt-get upgrade</b>
+
+{% highlight bash %}
+sudo http_proxy=http://127.0.0.1:8080 apt-get upgrade
+{% endhighlight %}
+
+That's all. nice no ? If you like it, you can make it permanent by creating an <a href="http://linux.die.net/man/5/apt.conf">apt configuration file</a>. lets call it <b>/etc/apt/apt.conf.d/80webpeer</b> and put the following content to it.
+
+{% highlight bash %}
+Acquire::http::Proxy "http://localhost:8080";
+{% endhighlight %}
+
+If you want to restart <a href="/blog/2010/08/24/webpeer-http-proxy/">webpeer-http-proxy</a> after a reboot, put it in a <a href="http://kevin.vanzonneveld.net/techblog/article/run_nodejs_as_a_service_on_ubuntu_karmic/">service</a>.
+
+
+
+
