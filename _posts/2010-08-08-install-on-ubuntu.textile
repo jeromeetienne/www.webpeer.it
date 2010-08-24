@@ -1,6 +1,5 @@
 ---
 layout: post
-title: Install on Ubuntu
 ---
 
 h1. {{ page.title }}
