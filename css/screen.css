@@ -81,7 +81,7 @@ table {
 }
 
 .site .header a {
-	text-decoration	: none;
+	text-decoration:	none;
 }
 
 .site .header .title {	/* From google font directory */
@@ -136,18 +136,10 @@ table {
 	text-decoration	: none;
 	text-shadow	: white 2px 2px, white -2px 2px;
 	margin-left	: 1em;
-
-	padding		: 10px;
 }
 
 .site .menu a:hover {
-	background		: #666;
-	color			: #fff;
-	text-shadow		: #999 1px 1px;
-
-	border-radius		: 10px;
-	-moz-border-radius	: 10px;
-	-webkit-border-radius	: 10px;
+	color		: #444;
 }
  
 
