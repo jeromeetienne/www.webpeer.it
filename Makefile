@@ -16,10 +16,10 @@ server:
 	lighttpd -f lighttpd.conf  -D
 		
 upload: jekyll_build
-	(cd $(JEKYLL_DST) && git checkout gh-pages && git add . && git commit -a -m 'new build' && git push)
+	(cd $(JEKYLL_DST) && git add . && git commit -a -m 'new build' && git push)
 
 jekyll_build:
-	(cd $(JEKYLL_DST) && git checkout gh-pages)
+	(cd $(JEKYLL_DST) && git reset --hard origin/gh-pages)
 	touch $(JEKYLL_DST)/.nojekyll
 	/home/jerome/work/jekyll/bin/jekyll . $(JEKYLL_DST)
 
