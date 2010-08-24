@@ -1,6 +1,5 @@
 ---
 layout: post
-title: Fun with jQuery
 ---
 
 h1. {{ page.title }}
