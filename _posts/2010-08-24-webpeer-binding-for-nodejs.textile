@@ -1,0 +1,23 @@
+---
+layout: post
+---
+
+h1. {{ page.title }}
+
+p(meta). 24 Aug 2010
+
+webpeer binding for nodejs gives easy access to any nodejs code. First lets install nodejs binding for webpeer (with the excelent <a href="http://github.com/isaacs/npm">npm</a>).
+
+{% highlight bash %}
+npm install webpeer
+{% endhighlight %}
+
+This is a simple example which probe if webpeer is present, and then convert an url.
+
+{% highlight javascript %}
+var webpeer	= require('webpeer');
+webpeer.ready(function(){
+	console.log("Webpeered url is "+webpeer.url('http://example.com/file.mp4');
+});
+{% endhighlight %}
+

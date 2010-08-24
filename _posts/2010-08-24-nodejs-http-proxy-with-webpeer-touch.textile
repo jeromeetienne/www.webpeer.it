@@ -1,0 +1,35 @@
+---
+layout: post
+---
+
+h1. {{ page.title }}
+
+p(meta). 24 Aug 2010
+
+
+This is a little experiment to use webpeer in a <a href="http://en.wikipedia.org/wiki/Http_proxy">http proxy</a>. Why ? because an <a href="http://en.wikipedia.org/wiki/Http_proxy">http proxy</a> is the main part of installing webpeer on a <a href="http://en.wikipedia.org/wiki/Middlebox">middlebox</a>. WebPeer is quite flexible in location. If it is installed on a ASDL modem, all the computers behind it will transparently benefit from it. OK, lets get to it.
+
+
+First lets install <a href="/blog/2010/08/24/webpeer-binding-for-nodejs/">nodejs binding for webpeer</a>.
+
+{% highlight bash %}
+npm install webpeer
+{% endhighlight %}
+
+Then download <a href="http://github.com/jeromeetienne/node-neoip/blob/master/contrib/webpeer_http_proxy/webpeer-http-proxy.js">webpeer-http-proxy</a>. It is quite short. webpeer-http-proxy will intercept all http requests, and reroute the audio/video files thru <a href="http://webpeer.it">webpeer</a>. Lets run it
+
+{% highlight bash %}
+node webpeer-http-proxy.js
+{% endhighlight %}
+
+Point your browser or any http client to it. Depending on the OS, it is done differently. On ubuntu, just export an <strong>http_proxy</strong> environment variable,  your milage may vary.
+
+{% highlight bash %}
+export http_proxy=http://127.0.0.1:8080
+{% endhighlight %}
+
+Then you can launch your browser or any http client to it.
+
+{% highlight bash %}
+mplayer http://example.com/movie.mp4
+{% endhighlight %}
