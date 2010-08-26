@@ -7,7 +7,7 @@ h1. {{ page.title }}
 p(meta). 24 Aug 2010
 
 
-This is a little experiment to use webpeer in a <a href="http://en.wikipedia.org/wiki/Http_proxy">http proxy</a>. Why ? because an <a href="http://en.wikipedia.org/wiki/Http_proxy">http proxy</a> is the main part of installing webpeer on a <a href="http://en.wikipedia.org/wiki/Middlebox">middlebox</a>. WebPeer is quite flexible in location. If it is installed on a ASDL modem, all the computers behind it will transparently benefit from it. OK, lets get to it.
+This is a little experiment to use webpeer in a <a href="http://en.wikipedia.org/wiki/Http_proxy">http proxy</a>. Why ? because WebPeer is quite flexible in location and an <a href="http://en.wikipedia.org/wiki/Http_proxy">http proxy</a> is the main part of installing webpeer on a <a href="http://en.wikipedia.org/wiki/Middlebox">middlebox</a>. If it is installed on a ASDL modem, all the computers behind it will transparently benefit from it. OK, lets get to it.
 
 
 First lets install <a href="/blog/2010/08/24/webpeer-binding-for-nodejs/">nodejs binding for webpeer</a>.
