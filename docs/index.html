@@ -4,7 +4,46 @@ title: Webpeer.it documentation
 ---
 
 <div>
-	The whole api <a href="jsdoc"title="jsdoc <br/>cest super"> reference</a>
+	<h1>WebPeer.js</h1>
+	webpeer.js is webpeer binding for javascript. It can run in <a href="#from_a_webpack">any webpage</a>
+	or <a href="#from_nodejs">on the server</a> via <a href="http://nodejs.org/">nodejs</a>.
+	
+	<h1 name="from_a_webpage">Example From a Webpage</h1>
+	
+{% highlight html %}
+<script type="text/javascript" src="http://webpeer.it/js/webpeer.min.js"></script>
+<script>
+	webpeer.ready(function(){
+		$("img").each(function(){
+			this.attr("src", webpeer.url(this.attr('src')) );
+		})
+	});
+</script>
+{% endhighlight %}
+
+	<h1 name="from_nodejs">Example From nodejs</h1>
+	<p>
+		Lets install webpeer module for nodejs with the excelent <a href="http://github.com/isaacs/npm">npm</a> packager.
+		
+{% highlight bash %}
+npm install webpeer
+{% endhighlight %}
+
+<br/>
+This is a simple example which probe if webpeer is present, and thenconvert an url.
+
+{% highlight javascript %}
+var webpeer	= require('webpeer');
+webpeer.ready(function(){
+	console.log("Webpeered url is "+webpeer.url('http://example.com/file.mp4'));
+});
+{% endhighlight %}	
+	</p>
+	
+	
+	--
+	
+	If you wish, you can look at the whole api <a href="jsdoc">jsdoc reference</a>.
 </div>
 
 
