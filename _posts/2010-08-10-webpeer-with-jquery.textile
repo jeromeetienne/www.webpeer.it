@@ -1,0 +1,38 @@
+---
+layout: post
+---
+
+h1. {{ page.title }}
+
+p(meta). 09 Aug 2010
+
+In a previous <a href="/blog/2010/08/09/webpeer-binding-for-the-web/">post</a>, we have seen how to use webpeer in any webpage. Here is a little jquery script to demonstrate how <a href="/">WebPeer</a> and <a href="http://jquery.com">jQuery</a> fit together. Suppose you got a <a href="http://en.wikipedia.org/wiki/HTML5_video">html5 video</a> player in your webpage, you will likely end up with something like that in your html:
+
+{% highlight html %}
+<video controls>
+	<source src="http://example.com/video.webm"
+		type='video/webm; codecs="vp8, vorbis"'/>
+</video>
+{% endhighlight %}
+
+
+Now the javascript... <a href="http://jquery.com">jQuery</a> is awesome when it comes to select elements. We will use it to get the source tags of your videos. Then it is just a matter to _webpeerify_ all
+src and you are done! Your video will be delivered with _p2p efficiency_, reducing the load of your servers and providing faster download to your users.
+
+Rather small effort for such a result no ?
+
+{% highlight html %}
+<script type="text/javascript" src="http://webpeer.it/js/webpeer.min.js"></script>
+<script>
+	// detect webpeer presence
+	webpeer.ready(function(){
+		// select source elements of your video
+		$("video source").each(function(){
+			// webpeerify the src attribute
+			this.attr("src", webpeer.url(this.attr('src')) );
+		})
+	});
+</script>
+{% endhighlight %}
+
+

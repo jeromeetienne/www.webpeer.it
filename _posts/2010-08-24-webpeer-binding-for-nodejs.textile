@@ -6,7 +6,7 @@ h1. {{ page.title }}
 
 p(meta). 24 Aug 2010
 
-I just released a node.js version of webpeer binding. Those bindings give easy access to webpeer feature from any nodejs code. So now there are 2 versions of the binding, <a href="/blog/2010/08/09/webpeer-binding-for-the-web">one for the web</a> and one <a href="/blog/2010/08/24/webpeer-binding-for-nodejs">one for nodejs</a>. This is the same code as they are both javascript, only the paint changes.
+I just released a node.js version of webpeer binding. Those bindings give easy access to webpeer features from any nodejs code. So now there are 2 versions of the binding, <a href="/blog/2010/08/09/webpeer-binding-for-the-web">one for the web</a> and one <a href="/blog/2010/08/24/webpeer-binding-for-nodejs">one for nodejs</a>. This is the same code as they are both in javascript, only the paint changes.
 
 Lets install webpeer module for nodejs with the excelent <a href="http://github.com/isaacs/npm">npm</a> packager.
 
@@ -19,7 +19,7 @@ This is a simple example which probe if webpeer is present, and then convert an 
 {% highlight javascript %}
 var webpeer	= require('webpeer');
 webpeer.ready(function(){
-	console.log("Webpeered url is "+webpeer.url('http://example.com/file.mp4');
+	console.log("Webpeered url is "+webpeer.url('http://example.com/file.mp4'));
 });
 {% endhighlight %}
 

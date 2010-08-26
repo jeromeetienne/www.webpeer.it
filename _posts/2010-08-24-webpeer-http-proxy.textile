@@ -16,7 +16,7 @@ First lets install <a href="/blog/2010/08/24/webpeer-binding-for-nodejs/">nodejs
 npm install webpeer
 {% endhighlight %}
 
-Then download <a href="http://github.com/jeromeetienne/node-neoip/blob/master/contrib/webpeer_http_proxy/webpeer-http-proxy.js">webpeer-http-proxy</a>. It is quite short. webpeer-http-proxy will intercept all http requests, and reroute the audio/video files thru <a href="http://webpeer.it">webpeer</a>. Lets run it
+Then download <a href="http://github.com/jeromeetienne/node-neoip/raw/master/contrib/webpeer_http_proxy/webpeer-http-proxy.js">webpeer-http-proxy</a>. It is quite short. webpeer-http-proxy will intercept all http requests, and reroute the audio/video files thru <a href="http://webpeer.it">webpeer</a>. Lets run it
 
 {% highlight bash %}
 node webpeer-http-proxy.js
