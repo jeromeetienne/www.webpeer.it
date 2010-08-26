@@ -1,1 +1,3 @@
-work in progress
+Website for WebPeer project
+
+part of neoip effort http://github.com/jeromeetienne/neoip
