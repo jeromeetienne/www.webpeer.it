@@ -699,6 +699,7 @@ var app_available	= function(app_suffix){
  * @param {String} app_suffix the neoip application suffix
  * @param {function(root_url, version)} success_cb notified if app is found
  * @param {function(error)} failure_cb notified if app is not found
+ * @param {String} hostname the destination hostname to probe
 */
 var discover_app	= function(ctor_opts){
 	// copy ctor_opts + set default values if needed
@@ -707,10 +708,9 @@ var discover_app	= function(ctor_opts){
 	var failure_cb	= ctor_opts.failure_cb	|| function(){};
 	var nocache	= ctor_opts.nocache	|| false;
 	var verbose	= ctor_opts.verbose	|| 0;
+	var hostname	= ctor_opts.hostname	|| "127.0.0.1";
 	// sanity check
 	console.assert(app_suffix == "oload" || app_suffix == "casti" || app_suffix == "casto");
-	// if callback are not specified, use a dummy one
-	if(!failure_cb)	failure_cb = function(){};
 	// handle cache
 	if(app_suffix in disc_app_cache && !nocache ){
 		var cache_item	= disc_app_cache[app_suffix];
@@ -728,7 +728,7 @@ var discover_app	= function(ctor_opts){
 	// define the callbacks
 	var probe_succ_cb	= function(version){
 		if( verbose )	console.log("found "+app_suffix+" version "+version+" at port "+port_cur);
-		var root_url	= "http://127.0.0.1:"+port_cur;
+		var root_url	= "http://"+hostname+":"+port_cur;
 		// cache the result
 		disc_app_cache[app_suffix]	= {
 			"root_url"	: root_url,
@@ -752,7 +752,7 @@ var discover_app	= function(ctor_opts){
 	};
 	var probe_launch	= function(){
 		rpc_call.create({
-			call_url	: "http://127.0.0.1:"+port_cur+"/neoip_"+app_suffix+"_appdetect_jsrest.js",
+			call_url	: "http://"+hostname+":"+port_cur+"/neoip_"+app_suffix+"_appdetect_jsrest.js",
 			method_name	: 'probe_apps',
 			method_args	: [],
 			success_cb	: probe_succ_cb,
@@ -775,6 +775,7 @@ var discover_app	= function(ctor_opts){
 /**
  * Compare version ala memcmp. format is major.minor.patch
  * - used in discover_webpeer()
+ * - TODO support semver http://semver.org/
 */
 var version_compare	= function(version1, version2){
 	// parse the versions
@@ -844,6 +845,7 @@ var webpeer_status	= function(){
 var discover_webpeer	= function(ctor_opts){
 	// copy ctor_opts + set default values if needed
 	var completed_cb= ctor_opts.completed_cb	|| function(){};
+	var hostname	= ctor_opts.hostname		|| "127.0.0.1";
 	var nocache	= ctor_opts.nocache		|| false;
 	// internal vars
 	var nprobe	= 3;
@@ -857,6 +859,7 @@ var discover_webpeer	= function(ctor_opts){
 	for(var app_suffix in webpeer_versions_min){
 		discover_app({
 			app_suffix	: app_suffix,
+			hostname	: hostname,
 			nocache		: nocache,
 			success_cb	: callback,
 			failure_cb	: callback
@@ -1171,15 +1174,19 @@ exports.rpc_call	= rpc_call;
  *
  * @return {string} the url for the stream out of neoip-casto
 */
-var create = function(opts){
-	// sanity check - all mandatory fields MUST be present
-	console.assert(opts.base_url);
-	console.assert(opts.cast_privhash);
-	console.assert(opts.cast_name);
+var create = function(ctor_opts){
+	//////////////////////////////////////////////////////////////////////////
+	//		class variables						//
+	//////////////////////////////////////////////////////////////////////////
+	// copy ctor_opts + set default values if needed
+	var base_url		= ctor_opts.base_url		|| console.assert(false);
+	var cast_privhash	= ctor_opts.cast_privhash	|| console.assert(false);
+	var cast_name		= ctor_opts.cast_name		|| console.assert(false);
+	var mdata_srv_uri	= ctor_opts.mdata_srv_uri	|| null;
 	// build the url
-	var url	= opts.base_url + "/" + opts.cast_privhash + "/" + opts.cast_name;
+	var url	= base_url + "/" + cast_privhash + "/" + cast_name;
 	// add mdata_srv_uri if any
-	if( opts.mdata_srv_uri )	url	+= "?mdata_srv_uri=" + escape(opts.mdata_srv_uri);
+	if( mdata_srv_uri )	url	+= "?mdata_srv_uri=" + escape(mdata_srv_uri);
 	// return the just built url
 	return url;
 }
@@ -1479,39 +1486,46 @@ var verbose	= 1;
 var webpeer	= {};
 
 /**
- * probe webpeer and notify the callback once completed
+ * Start a detection of webpeer.  and notify the callback on completion
+ *
+ * - use webpeer.present() to get the result
  * 
- * @param completed_cb {function} callback notified on completion completed(avail){}
+ * @param completed_cb {function} callback notified on completion completed(){}
 */
 webpeer.ready	= function(completed_cb){
 	// discover neoip-webpeer
 	app_detect.webpeer_probe({
 		completed_cb	: function(status){
-			if( status == "toinstall" )	completed_cb(false);
-			else if( status == "toupgrade")	completed_cb(true);
-			else if( status == "installed")	completed_cb(true);
-			else console.assert(false);
+			if( status == "toinstall" )	completed_cb();
+			else if( status == "toupgrade")	completed_cb();
+			else if( status == "installed")	completed_cb();
+			else console.assert();
 		}
 	})
 };
 
 
 /**
- * @returns {boolean} true if webpeer is available, false otherwise
+ * webpeer.present() returns true if webpeer has been detected, false otherwise
+ *
+ * - do a webpeer.ready() before to get meaningfull results
+ * 
+ * @returns {boolean} true if webpeer is detected, false otherwise
 */
-webpeer.avail	= function(){
+webpeer.present	= function(){
 	return app_detect.webpeer_status() == "installed";
 }
 
 /**
- * webpeerify a url to static file
- * - this is an minimal helper on top of url_builder_oload_t
- * - url_builder_oload_t implementation is complete and much more complex
+ * webpeerify a url to a file
+ * - if webpeer has not been detected the url is returned as is.
+ * - do a webpeer.ready() before to get meaningfull results
+ * - This is a simplified url convertion to webpeer
  * 
  * @param url {string} original url to webpeerify
 */
 webpeer.url	= function(url){
-	if( !webpeer.avail() )	return url;
+	if( !webpeer.present() )	return url;
 	return url_builder_oload_t.create(url)
 			.set('outter_uri', app_detect.cache_get('oload').root_url)
 			.to_string();
@@ -1522,6 +1536,7 @@ webpeer.url	= function(url){
  * Continuously probe webpeer and notify on status change
 */
 webpeer.monitor	= function(ctor_opts){
+	if( typeof(ctor_opts) == "undefined" )	ctor_opts = {};
 	if( typeof(ctor_opts) == "function" )	ctor_opts = {completed_cb: ctor_opts};
 	// copy ctor_opts + set default values if needed
 	var completed_cb= ctor_opts.completed_cb	|| function(){};
@@ -1545,15 +1560,18 @@ webpeer.monitor	= function(ctor_opts){
 }
 
 /**
- * - this function is web-only
+ * Generate a badge of webpeer. It is web-only function. a busy wheel is displayed
+ * during the detection, if detected it is replaced by a green checkmark, else it is
+ * replaced by a red cross
+ * 
  * @param {string} the dom element id of the img tag
 */
 webpeer.badge	= function(elem_id){
 	webpeer.ready(function(){
-		var elem	= document.getElementById("webpeer_badge");
-		elem.src	= "http://webpeer.it/images/badge/" + (webpeer.avail() ? 'accept.png' : 'exclamation.png');
-		if( webpeer.avail() ){
-			elem.title	= "You are a web peer. Welcome!";
+		var elem	= document.getElementById(elem_id);
+		elem.src	= "http://webpeer.it/images/badge/" + (webpeer.present() ? 'accept.png' : 'exclamation.png');
+		if( webpeer.present() ){
+			elem.title	= "You are a web peer. Congrats!";
 		}else{
 			elem.title	= "You are not yet a web peer. Click to be one.";		
 		}
@@ -1561,9 +1579,9 @@ webpeer.badge	= function(elem_id){
 }
 
 // exports public functions
-exports.ready	= webpeer.ready;
-exports.avail	= webpeer.avail;
+exports.present	= webpeer.present;
 exports.url	= webpeer.url;
+exports.ready	= webpeer.ready;
 exports.badge	= webpeer.badge;
 
 
