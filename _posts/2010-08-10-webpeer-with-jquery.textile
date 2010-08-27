@@ -16,8 +16,7 @@ In a previous <a href="/blog/2010/08/09/webpeer-binding-for-the-web/">post</a>, 
 {% endhighlight %}
 
 
-Now the javascript... <a href="http://jquery.com">jQuery</a> is awesome when it comes to select elements. We will use it to get the source tags of your videos. Then it is just a matter to _webpeerify_ all
-src and you are done! Your video will be delivered with _p2p efficiency_, reducing the load of your servers and providing faster download to your users.
+Now the javascript... <a href="http://jquery.com">jQuery</a> is awesome when it comes to select elements. We will use it to get the source tags of your videos. Then it is just a matter to _webpeerify_ all src and you are done! Your video will be delivered with _p2p efficiency_, reducing the load of your servers and providing faster download to your users.
 
 Rather small effort for such a result no ?
 
