@@ -1,6 +1,7 @@
 * 2010/20/16
 ** registered irc channel on freenode
-
+** added webpeer.js API description in docs/
+*** manual import from jsdoc in lib/webpeer.js
 
 * 2010/07/16
 ** homepage menu refactoring
