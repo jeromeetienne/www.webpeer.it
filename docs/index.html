@@ -5,45 +5,56 @@ title: Webpeer.it documentation
 
 <div>
 	<h1>WebPeer.js</h1>
-	webpeer.js is webpeer binding for javascript. It can run in <a href="#from_a_webpack">any webpage</a>
-	or <a href="#from_nodejs">on the server</a> via <a href="http://nodejs.org/">nodejs</a>.
+	webpeer.js is webpeer binding for javascript. It can run in <n>any webpage</b>
+	or <b>on the server</b> via <a href="http://nodejs.org/">nodejs</b>.
 	
-	<h1 name="from_a_webpage">Example From a Webpage</h1>
-	
-{% highlight html %}
-<script type="text/javascript" src="http://webpeer.it/js/webpeer.min.js"></script>
-<script>
-	webpeer.ready(function(){
-		$("img").each(function(){
-			this.attr("src", webpeer.url(this.attr('src')) );
-		})
-	});
-</script>
-{% endhighlight %}
-
-	<h1 name="from_nodejs">Example From nodejs</h1>
-	<p>
-		Lets install webpeer module for nodejs with the excelent <a href="http://github.com/isaacs/npm">npm</a> packager.
-		
-{% highlight bash %}
-npm install webpeer
-{% endhighlight %}
-
-<br/>
-This is a simple example which probe if webpeer is present, and thenconvert an url.
-
+	<h1>webpeer.ready(callback)</h1>
+	It starts a detection of webpeer. It notifies the callback on completion.
+	use webpeer.present() to get the result.
+	Here is a little example:
+	<br/>
 {% highlight javascript %}
-var webpeer	= require('webpeer');
 webpeer.ready(function(){
-	console.log("Webpeered url is "+webpeer.url('http://example.com/file.mp4'));
+	console.log("webpeer has been probbed.");
 });
-{% endhighlight %}	
-	</p>
+{% endhighlight %}
 	
-	
-	--
-	
-	If you wish, you can look at the whole api <a href="jsdoc">jsdoc reference</a>.
+	<h1>webpeer.present()</h1>
+	It returns <b>true</b> if webpeer has been detected, <b>false</b> otherwise.
+	Do a webpeer.ready() before to get meaningfull results.
+	Here is a little example:
+	<br/>
+{% highlight javascript %}
+webpeer.ready(function(){
+	console.log("webpeer is "+(webpeer.present()?"detected": "not detected"));
+});
+{% endhighlight %}
+
+	<h1>webpeer.url(url)</h1>
+	It webpeerifies an url to a file. If webpeer has not been detected the url is returned as is.
+	Do a webpeer.ready() before to get meaningfull results.
+	This url convertion to webpeer is minimal for simplicity.
+	<br/>
+{% highlight javascript %}
+webpeer.ready(function(){
+	var url	= "http://example.com/livecd.iso";
+	console.log(url+" webpeerified to "+webpeer.url(url));
+});
+{% endhighlight %}
+
+	<h1>webpeer.badge(element_id)</h1>
+	Generate a dynamic badge of webpeer. It is web-only function. a busy wheel is displayed
+	during the detection, if detected it is replaced by a green checkmark, else it is
+	replaced by a red cross.
+ 	<br/>
+{% highlight javascript %}
+webpeer.badge("webpeer_badge");
+{% endhighlight %}
+
+	<h1>Examples</h1>
+	Some examples are also available <a href="/blog/2010/08/24/webpeer-binding-for-nodejs/">from nodejs</a>
+	or <a href="/blog/2010/08/09/webpeer-binding-for-the-web/">from webpages</a>.
+	If you wish, you can look at the whole api <a href="jsdoc">jsdoc reference</a> (the output is strange... im not sure im doing it right).
 </div>
 
 
