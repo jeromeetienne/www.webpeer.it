@@ -9,4 +9,8 @@ p(meta). 08 Aug 2010
 Here is some slides about urfastr. This is/was the startup for which i created webpeer.
 
 <!-- google docs presentation -->
-<iframe src="https://docs.google.com/present/embed?id=dhng4bgf_18ctjwh6f8" frameborder="0" width="410" height="342"></iframe>
+<center>
+	<iframe src="https://docs.google.com/present/embed?id=dhng4bgf_18ctjwh6f8" frameborder="0"
+		width="555" height="451">
+	</iframe>
+</center>

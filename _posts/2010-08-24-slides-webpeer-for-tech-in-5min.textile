@@ -6,7 +6,12 @@ h1. {{ page.title }}
 
 p(meta). 24 Aug 2010
 
-Here is the slide of a presentation i did. It is quite technical and is done
+Here is the slides for my blitz talk. It is quite technical and is done
 in 5min... brace yourself :)
 
-<iframe src="https://docs.google.com/present/embed?id=dhng4bgf_41d5qbkqg7&size=m" frameborder="0" width="555" height="451"></iframe>
+<!-- google docs presentation -->
+<center>
+	<iframe src="https://docs.google.com/present/embed?id=dhng4bgf_41d5qbkqg7&size=m" frameborder="0"
+		width="555" height="451">
+	</iframe>
+</center>
