@@ -6,8 +6,7 @@ h1. {{ page.title }}
 
 p(meta). 24 Aug 2010
 
-Here is the slides for my blitz talk. It is quite technical and is done
-in 5min... brace yourself :)
+Here is the slides for my blitz talk. It is quite technical and is done in 5min... brace yourself :)
 
 <!-- google docs presentation -->
 <center>

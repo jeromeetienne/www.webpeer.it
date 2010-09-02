@@ -8,7 +8,6 @@ p(meta). 28 Aug 2010
 
 Here is some slides of a presentation i did about WebPeer.
 
-<!-- google docs presentation -->
 <center>
 	<iframe src="https://docs.google.com/present/embed?id=dhng4bgf_38fcsk8jfp&size=m" frameborder="0"
 		width="555" height="451">

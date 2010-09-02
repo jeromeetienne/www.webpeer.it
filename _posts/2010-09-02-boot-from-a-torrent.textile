@@ -6,7 +6,7 @@ h1. {{ page.title }}
 
 p(meta). 02 Sep 2010
 
-Ever dreamed to boot directly from a .torrent ? no ? Even geeks have dreams you know. As a proof of webpeer flexibility, we will show how to do that.
+Ever dreamed to boot directly from a .torrent ? no ? Even geeks have dreams you know. As an example of webpeer flexibility, we will show how to do that.
 
 
 <h2>STEP 1: WebPeerify the iso URL</h2>
