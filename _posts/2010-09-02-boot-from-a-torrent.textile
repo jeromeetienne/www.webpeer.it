@@ -1,0 +1,59 @@
+---
+layout: post
+---
+
+h1. {{ page.title }}
+
+p(meta). 02 Sep 2010
+
+Ever dreamed to boot directly from a .torrent ? no ? Even geeks have dreams you know. As a proof of webpeer flexibility, we will show how to do that.
+
+
+<h2>STEP 1: WebPeerify the iso URL</h2>
+
+TODO write more here on this cmd this is like the most important :)
+
+{% highlight bash %}
+$WEBPEERED_URL=`webpeer-url-static --outter_var do_jamrc4=false	\
+	--dupuri http://gd.tuwien.ac.at/opsys/linux/damnsmall/current/dsl-4.4.10.iso \
+	http://www.osst.co.uk/Download/DamnSmallLinux/current/dsl-4.4.10.iso.torrent`
+{% endhighlight %}
+
+<h2>STEP 2: Make a pseudo .iso file from an URL</h2>
+First we need something which make an URL appears as a local file. We will install <a href="http://vamosproject.org/httpfs">httpfs2</a> to handle this role. Then we create a pseudo .iso file. We reuse @$WEBPEERED_URL@ from step 1. so this file is not actually stored on your disk, Data are read from network via WebPeer
+
+{% highlight bash %}
+sudo apt-get install httpfs2
+mkdir -p /tmp/webpeerboot
+httpfs2 -c /dev/null $WEBPEERED_URL /tmp/webpeerboot
+{% endhighlight %}
+
+<h2>STEP 3: Create a Virtual Machine</h2>
+Use <a href="http://www.virtualbox.org/">VirtualBox</a> to create this <a href="http://en.wikipedia.org/wiki/Virtual_machine">virtual machine</a>. If it is not yet present on your computer, do a @sudo apt-get install virtualbox-ose@. Here we gonna use VBoxmanage, the command line utility to control VirtualBox. Thus you can simply copy/paste the lines below in a terminal. A graphical UI does exists but much less copy/pastable from a blog :) The VM is called <em>webpeerboot</em>, has no disk and gonna boot on the pseudo .iso file we just created in step 2.
+
+{% highlight bash %}
+VBoxManage createvm -name webpeerboot -register
+VBoxManage storagectl webpeerboot --name "IDE Controller" --add ide
+VBoxManage storageattach webpeerboot --storagectl "IDE Controller" --port 0 \
+			--device 0 --type dvddrive \
+			--medium /tmp/webpeerboot/dsl-4.4.10.iso 
+{% endhighlight %}
+
+<h2>STEP 4: Start the VM</h2>
+We are all set now. Lets start this VM
+
+TODO write more here
+
+{% highlight bash %}
+VBoxManage startvm webpeerboot
+{% endhighlight %}
+
+<h2>STEP 5: Destroy the VM</h2>
+
+TODO write more here
+
+{% highlight bash %}
+VBoxManage storageattach webpeerboot --storagectl "IDE Controller" --port 0 \
+			--device 0 --type dvddrive --medium none
+VBoxManage unregistervm  webpeerboot --delete
+{% endhighlight %}
