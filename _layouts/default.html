@@ -20,11 +20,15 @@
 </head>
 <body>
 
-<div class="site">
-	
+<script>
+jQuery(function(){
+	if( jQuery.browser.mozilla ){
+		jQuery('body').addClass('mozilla');
+	}
+})
+</script>
 
-<style>
-</style>
+<div class="site">
 	<div class="header">
 		<a href="/">
 			<div class="title">Web Peer . it</div>

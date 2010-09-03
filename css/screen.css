@@ -87,29 +87,35 @@ table {
 }
 
 .site .header .title {	/* From google font directory */
-	font-family	: 'Vollkorn', serif;
 	font-size	: 90px;
+	font-family	: 'Vollkorn', serif;
 	font-style	: normal;
 	font-weight	: 700;
 	text-shadow	: 6px 6px 6px #ccc;
-	text-decoration	: none;
 	text-transform	: none;
 	letter-spacing	: 0.019em;
 	word-spacing	: 0em;
 	line-height	: 0em;
 }
+
+body.mozilla .site .header .title {	/* mozilla specific css */
+	padding-top	: 45px;
+}
 .site .header .slogan {	/* From google font directory */
-	font-family	: 'Crimson Text', serif;
 	font-size	: 24px;
+	font-family	: 'Crimson Text', serif;
 	font-style	: normal;
 	font-weight	: 700;
 	text-shadow	: 2px 2px 2px #aaa;
-	text-decoration	: none;
 	text-transform	: none;
 	letter-spacing	: 0.083em;
 	word-spacing	: 0em;
 	line-height	: 0.5em;
 }
+body.mozilla .site .header .slogan {	/* mozilla specific css */
+	padding-top	: 12px;
+}
+
 .site .header .title {
 	text-align	: center;
 	color		: #222;
@@ -154,7 +160,52 @@ table {
 	-moz-border-radius	: 10px;
 	-webkit-border-radius	: 10px;
 }
- 
+
+/********************************************************************************/
+/********************************************************************************/
+/*	synopsys								*/
+/********************************************************************************/
+/********************************************************************************/
+.synopsys .column_1 {
+	float		: left;
+	width		: 480px;
+	line-height	: 1.7em;
+}
+.synopsys .column_2 {
+	float		: right;
+	width		: 300px;
+	border-left	: solid;
+	text-align	: center;
+}
+.synopsys .column_2 li {
+	list-style-type	: none;
+	font-size	: 100%;
+	padding-bottom	: 1em;
+	padding-top	: 1em;
+	padding-left	: 0.5em;
+	line-height	: 0px;
+	text-transform	: capitalize;
+	font-family	: 'Crimson Text', serif;
+	letter-spacing	: 0.083em;
+}
+body.mozilla .synopsys .column_2 li {	/* mozilla specific css */
+	letter-spacing	: 0em;
+}
+
+.synopsys .column_2 a {
+	padding			: 10px;
+}
+.synopsys .column_2 a:hover {
+	border			: 2px solid #ddd;
+	padding			: 8px;
+
+	background		: #ddf;
+	text-decoration		: none;
+
+	border-radius		: 10px;
+	-moz-border-radius	: 10px;
+	-webkit-border-radius	: 10px;
+}
 
 /********************************************************************************/
 /********************************************************************************/
