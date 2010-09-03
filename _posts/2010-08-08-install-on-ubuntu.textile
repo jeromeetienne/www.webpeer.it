@@ -6,17 +6,17 @@ h1. {{ page.title }}
 
 p(meta). 08 Aug 2010
 
-neoip-webpack is simple to install on ubuntu.
+neoip-webpeer is simple to install on ubuntu.
 <pre class="terminal"><code>$ sudo add-apt-repository ppa:jerome-etienne/neoip && \
-	sudo apt-get update && sudo apt-get install neoip-utils
+	sudo apt-get update && sudo apt-get install webpeer-utils
 </code></pre>
 
 Check it is all ok
-<pre class="terminal"><code>$ neoip-detect 
+<pre class="terminal"><code>$ webpeer-detect 
 webpack is installed and uptodate.
 </code></pre>
 
 Use it with mplayer
-<pre class="terminal"><code>$ mplayer `neoip-url-static http://mirror.bigbuckbunny.de/peach/bigbuckbunny_movies/big_buck_bunny_1080p_surround.avi`
+<pre class="terminal"><code>$ mplayer `webpeer-url-static http://mirror.bigbuckbunny.de/peach/bigbuckbunny_movies/big_buck_bunny_1080p_surround.avi`
 </code></pre>
 
