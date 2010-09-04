@@ -1,0 +1,17 @@
+---
+layout: post
+#published: false
+---
+
+h1. {{ page.title }}
+
+p(meta). 04 Sep 2010
+
+In some cases, it may be interesting to preload content in webpeer. <!-- give details on the cases --> For this purpose, i added @webpeer-preload@ in @webpeer-utils@. This tool will communicate with @webpeer@ and asks it to preload URLs. The URLs are passed as command line parameters.
+
+{% highlight bash %}
+webpeer-preload http://example.com/video.webm http://example.com/song.ogg
+{% endhighlight %}
+
+After this command, this webpeer will share the content of <em>video.webm</em> and <em>song.ogg</em>. Thus if another web peer access those urls, this webpeer will help it.
+
