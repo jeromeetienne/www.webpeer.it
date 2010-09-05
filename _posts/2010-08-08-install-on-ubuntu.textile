@@ -13,7 +13,7 @@ neoip-webpeer is simple to install on ubuntu.
 
 Check it is all ok
 <pre class="terminal"><code>$ webpeer-detect 
-webpack is installed and uptodate.
+webpeer is installed and uptodate.
 </code></pre>
 
 Use it with mplayer
