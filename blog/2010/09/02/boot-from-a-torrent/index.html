@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en-us">
+<head>
+	<meta http-equiv="content-type" content="text/html; charset=utf-8" />
+	<title>Boot From A Torrent</title>
+	<meta name="author" content="Jerome Etienne" />
+	
+	<!-- syntax highlighting CSS -->
+	<link rel="stylesheet" href="/css/syntax.css" type="text/css" />
+	
+	<!-- Homepage CSS -->
+	<link rel="stylesheet" href="/css/screen.css" type="text/css" media="screen, projection" />
+	<link rel="stylesheet" href="/css/post.css" type="text/css" media="screen, projection" />
+	
+	<!-- font experiment 	// from http://code.google.com/webfonts/preview -->
+	<link  href="http://fonts.googleapis.com/css?family=Vollkorn:regular,bold" rel="stylesheet" type="text/css" >
+	<link  href="http://fonts.googleapis.com/css?family=Crimson+Text:regular" rel="stylesheet" type="text/css" >
+
+	<script type="text/Javascript" src="/js/jquery/jquery-1.4.2.min.js"></script>
+</head>
+<body>
+
+<script>
+jQuery(function(){
+	if( jQuery.browser.mozilla ){
+		jQuery('body').addClass('mozilla');
+	}
+})
+</script>
+
+<div class="site">
+	<div class="header">
+		<a href="/">
+			<div class="title">Web Peer . it</div>
+			<div class="slogan">Web Ubiquity + p2p Efficiency</div>
+		</a>
+		<div class="menu">
+			<a href="/">Home</a>
+			<a href="/blog">Blog</a>
+			<a href="/download">Download</a>
+			<a href="/docs">Docs</a>
+			<a href="/about">About</a>
+		</div>
+	</div>
+  
+	<div id="post">
+<h1>Boot From A Torrent</h1>
+<p class="meta">02 Sep 2010</p>
+<p>Ever dreamed to boot directly from a .torrent ? no ? Even geeks have dreams you know. As an example of webpeer flexibility, we will show how to do that.</p>
+<h2><span class="caps">STEP</span> 1: WebPeerify the iso <span class="caps">URL</span></h2>
+<p>We picked <a href="http://www.damnsmalllinux.org/">damn small linux</a>, &#8220;a very versatile 50MB mini desktop oriented Linux distribution&#8221;. The <a href="http://en.wikipedia.org/wiki/ISO_image">iso image</a> for the <a href="http://en.wikipedia.org/wiki/Live_CD">live CD</a> is available as <a href="http://www.osst.co.uk/Download/DamnSmallLinux/current/dsl-4.4.10.iso.torrent">a torrent</a> or with normal <a href="http://gd.tuwien.ac.at/opsys/linux/damnsmall/current/dsl-4.4.10.iso">http url</a>. We gonna use both, thus if nobody is <a href="http://en.wikipedia.org/wiki/BitTorrent_vocabulary#Seeder">seeding</a> on the torrent, you can still boot using the normal http url. First we create the webpeered <a href="http://en.wikipedia.org/wiki/Uniform_Resource_Locator"><span class="caps">URL</span></a> which gonna point on the iso using the .torrent and the classical http url.</p>
+<div class="highlight"><pre><code class="bash"><span class="nv">$WEBPEERED_URL</span><span class="o">=</span><span class="sb">`</span>webpeer-url-static --outter_var <span class="nv">do_jamrc4</span><span class="o">=</span><span class="nb">false</span>	<span class="se">\</span>
+	--dupuri http://gd.tuwien.ac.at/opsys/linux/damnsmall/current/dsl-4.4.10.iso <span class="se">\</span>
+	http://www.osst.co.uk/Download/DamnSmallLinux/current/dsl-4.4.10.iso.torrent<span class="sb">`</span>
+</code></pre>
+</div><h2><span class="caps">STEP</span> 2: Make a pseudo .iso file from the <span class="caps">URL</span></h2>
+<p>First we need something which make an <span class="caps">URL</span> appears as a local file. We will install <a href="http://vamosproject.org/httpfs">httpfs2</a> to handle this role. Then we create a pseudo .iso file. We reuse <code>$WEBPEERED_URL</code> from step 1. so this file is not actually stored on your disk, Data are read from network via WebPeer</p>
+<div class="highlight"><pre><code class="bash">sudo apt-get install httpfs2
+mkdir -p /tmp/webpeerboot
+httpfs2 -c /dev/null <span class="nv">$WEBPEERED_URL</span> /tmp/webpeerboot
+</code></pre>
+</div><h2><span class="caps">STEP</span> 3: Create a Virtual Machine</h2>
+<p>Use <a href="http://www.virtualbox.org/">VirtualBox</a> to create this <a href="http://en.wikipedia.org/wiki/Virtual_machine">virtual machine</a>. If it is not yet present on your computer, do a <code>sudo apt-get install virtualbox-ose</code>. Here we gonna use VBoxmanage, the command line utility to control VirtualBox. Thus you can simply copy/paste the lines below in a terminal. A graphical UI does exists but much less copy/pastable from a blog :) The VM is called <em>webpeerboot</em>, has no disk and gonna boot on the pseudo .iso file we just created in step 2.</p>
+<div class="highlight"><pre><code class="bash">VBoxManage createvm -name webpeerboot -register
+VBoxManage storagectl webpeerboot --name <span class="s2">&quot;IDE Controller&quot;</span> --add ide
+VBoxManage storageattach webpeerboot --storagectl <span class="s2">&quot;IDE Controller&quot;</span> --port 0 <span class="se">\</span>
+			--device 0 --type dvddrive <span class="se">\</span>
+			--medium /tmp/webpeerboot/dsl-4.4.10.iso 
+</code></pre>
+</div><h2><span class="caps">STEP</span> 4: Start the VM</h2>
+<p>We are all set now. The virtual machine has been created and will boot on the torrent of step 1. Lets start this VM. You can do so from the <span class="caps">GUI</span> or with <em>VBoxManage</em>.</p>
+<div class="highlight"><pre><code class="bash">VBoxManage startvm webpeerboot
+</code></pre>
+</div><h2><span class="caps">STEP</span> 5: Play with the VM</h2>
+<p>Now you have booted from a .torrent &#8230; enjoy yourself :)</p>
+<h2><span class="caps">STEP</span> 6: Destroy the VM</h2>
+<p>As i like to keep things clean and tidy, here is how to remove the just-created VM with <em>VBoxManage</em>. Or you can simply delete it from the <span class="caps">GUI</span>, same thing.</p>
+<div class="highlight"><pre><code class="bash">VBoxManage storageattach webpeerboot --storagectl <span class="s2">&quot;IDE Controller&quot;</span> --port 0 <span class="se">\</span>
+			--device 0 --type dvddrive --medium none
+VBoxManage unregistervm  webpeerboot --delete
+</code></pre>
+</div>
+</div>
+
+  
+	<div class="footer">
+		<div class="contact">
+			Webpeer.it&nbsp;&nbsp;
+			<!-- webpeer badge start -->
+			<script type="text/javascript" src="/js/webpeer.js"></script>
+			<a href="http://webpeer.it"><img id="webpeer_badge" style="border-style: hidden" width="16" height="16"
+			src="/images/badge/wait16trans.gif" title="Probbing webpeer"/></a>
+			<script>webpeer.badge('webpeer_badge');</script>
+			<!-- webpeer badge end -->
+			<br>
+			web ubiquity + p2p efficiency
+		</div>
+		<div class="contact">
+			<a href="http://wiki.github.com/jeromeetienne/mw/">wiki</a>
+			|
+			<a href="/about">about</a>
+			<br>
+			Built at Sun Sep 05 11:40:45 +0200 2010
+			<!-- tweet button -- http://twitter.com/goodies/tweetbutton -->
+			<a href="http://twitter.com/share" class="twitter-share-button" data-url="http://webpeer.it" data-text="WebPeer.it boosts your internet for free! Check it out!" data-count="none" data-via="webpeerit" data-related="jerome_etienne:The author">Tweet</a><script type="text/javascript" src="http://platform.twitter.com/widgets.js"></script>
+	</div>
+</div>
+
+<!-- google analytic -->
+<script type="text/javascript">
+  var _gaq = _gaq || [];
+  _gaq.push(['_setAccount', 'UA-4037844-13']);
+  _gaq.push(['_trackPageview']);
+  (function() {
+    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+  })();
+</script>
+
+</body>
+</html>

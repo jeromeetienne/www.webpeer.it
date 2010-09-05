@@ -1,80 +1,207 @@
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
-	"http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
-
-<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en-us">
 <head>
-	<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+	<meta http-equiv="content-type" content="text/html; charset=utf-8" />
+	<title>Webpeer.it home</title>
+	<meta name="author" content="Jerome Etienne" />
+	
+	<!-- syntax highlighting CSS -->
+	<link rel="stylesheet" href="/css/syntax.css" type="text/css" />
+	
+	<!-- Homepage CSS -->
+	<link rel="stylesheet" href="/css/screen.css" type="text/css" media="screen, projection" />
+	<link rel="stylesheet" href="/css/post.css" type="text/css" media="screen, projection" />
+	
+	<!-- font experiment 	// from http://code.google.com/webfonts/preview -->
+	<link  href="http://fonts.googleapis.com/css?family=Vollkorn:regular,bold" rel="stylesheet" type="text/css" >
+	<link  href="http://fonts.googleapis.com/css?family=Crimson+Text:regular" rel="stylesheet" type="text/css" >
 
-	<title>jeromeetienne/www.webpeer.it @ GitHub</title>
-	
-	<style type="text/css">
-		body {
-  		margin-top: 1.0em;
-  		background-color: #02b7c7;
-		  font-family: "Helvetica,Arial,FreeSans";
-  		color: #000000;
-    }
-    #container {
-      margin: 0 auto;
-      width: 700px;
-    }
-		h1 { font-size: 3.8em; color: #fd4838; margin-bottom: 3px; }
-		h1 .small { font-size: 0.4em; }
-		h1 a { text-decoration: none }
-		h2 { font-size: 1.5em; color: #fd4838; }
-    h3 { text-align: center; color: #fd4838; }
-    a { color: #fd4838; }
-    .description { font-size: 1.2em; margin-bottom: 30px; margin-top: 30px; font-style: italic;}
-    .download { float: right; }
-		pre { background: #000; color: #fff; padding: 15px;}
-    hr { border: 0; width: 80%; border-bottom: 1px solid #aaa}
-    .footer { text-align:center; padding-top:30px; font-style: italic; }
-	</style>
-	
+	<script type="text/Javascript" src="/js/jquery/jquery-1.4.2.min.js"></script>
 </head>
-
 <body>
-  <a href="http://github.com/jeromeetienne/www.webpeer.it"><img style="position: absolute; top: 0; right: 0; border: 0;" src="http://s3.amazonaws.com/github/ribbons/forkme_right_darkblue_121621.png" alt="Fork me on GitHub" /></a>
 
-  <div id="container">
+<script>
+jQuery(function(){
+	if( jQuery.browser.mozilla ){
+		jQuery('body').addClass('mozilla');
+	}
+})
+</script>
 
-    <div class="download">
-      <a href="http://github.com/jeromeetienne/www.webpeer.it/zipball/master">
-        <img border="0" width="90" src="http://github.com/images/modules/download/zip.png"></a>
-      <a href="http://github.com/jeromeetienne/www.webpeer.it/tarball/master">
-        <img border="0" width="90" src="http://github.com/images/modules/download/tar.png"></a>
-    </div>
-
-    <h1><a href="http://github.com/jeromeetienne/www.webpeer.it">www.webpeer.it</a>
-      <span class="small">by <a href="http://github.com/jeromeetienne">jeromeetienne</a></span></h1>
-
-    <div class="description">
-      Web site for webpeer.it
-    </div>
-
-    <h2>Authors</h2>
-<p>Jerome Etienne (jerome.etienne@gmail.com)<br/><br/>      </p>
-<h2>Contact</h2>
-<p>Jerome Etienne (jerome.etienne@gmail.com)<br/>      </p>
+<div class="site">
+	<div class="header">
+		<a href="/">
+			<div class="title">Web Peer . it</div>
+			<div class="slogan">Web Ubiquity + p2p Efficiency</div>
+		</a>
+		<div class="menu">
+			<a href="/">Home</a>
+			<a href="/blog">Blog</a>
+			<a href="/download">Download</a>
+			<a href="/docs">Docs</a>
+			<a href="/about">About</a>
+		</div>
+	</div>
+  
+	<script type="text/javascript" src="js/jquery/plugins/jquery.sudoSlider.min.js"></script>
 
 
-    <h2>Download</h2>
-    <p>
-      You can download this project in either
-      <a href="http://github.com/jeromeetienne/www.webpeer.it/zipball/master">zip</a> or
-      <a href="http://github.com/jeromeetienne/www.webpeer.it/tarball/master">tar</a> formats.
-    </p>
-    <p>You can also clone the project with <a href="http://git-scm.com">Git</a>
-      by running:
-      <pre>$ git clone git://github.com/jeromeetienne/www.webpeer.it</pre>
-    </p>
+<script type="text/javascript" >
+	$(function(){
+		$("#slider").sudoSlider({
+		        prevNext:false,
+			startSlide: 2
+		});
+		$('#slider li div').css('display', 'block')
+		// trick to make animations onload
+		$('#slider').sudoSlider(1);
+		// hook all the buttons
+		$(".goto_slide_1").click(function(){	$('#slider').sudoSlider(1);     });
+		$(".goto_slide_2").click(function(){	$('#slider').sudoSlider(2);     });
+		$(".goto_slide_3").click(function(){	$('#slider').sudoSlider(3);     });
+		$(".goto_slide_4").click(function(){	$('#slider').sudoSlider(4);     });
+	});
+</script>
 
-    <div class="footer">
-      get the source code on GitHub : <a href="http://github.com/jeromeetienne/www.webpeer.it">jeromeetienne/www.webpeer.it</a>
-    </div>
 
-  </div>
+
+<div class="synopsys">
+	<div class="column_1">
+		Webpeer boosts your internet for free.
+		It seamlessly unifies web and p2p to leverage the best both worlds.
+		It is opensource and cross platform.
+
+		Its carefully crafted design makes it
+		<a href="javascript:void(0)" class="goto_slide_2">efficient</a>
+		,
+		<a href="javascript:void(0)" class="goto_slide_3">robust</a>
+		,
+		and
+		<a href="javascript:void(0)" class="goto_slide_4">transparent</a>
+		.
+		
+		Its deployement is quite flexible. You can choose to be
+		<a href="https://docs.google.com/present/view?id=dhng4bgf_38fcsk8jfp&start=35">on a desktop</a>
+		,
+		<a href="https://docs.google.com/present/view?id=dhng4bgf_38fcsk8jfp&start=36">an middlebox</a>
+		or
+		<a href="https://docs.google.com/present/view?id=dhng4bgf_38fcsk8jfp&start=37">on a server</a>
+		, each providing its own set of advantages.
+		
+	</div>
+	<div class="column_2">
+		<ul>
+			<li>
+				<a href="javascript:void(0)" class="goto_slide_2">faster downloads for clients</a>
+			</li>
+			<li>
+				<a href="javascript:void(0)" class="goto_slide_3">more reliable content delivery</a>
+			</li>
+			<li>
+				<a href="javascript:void(0)" class="goto_slide_2">reduced bandwith for servers</a>
+			</li>
+			<li>
+				<a href="javascript:void(0)" class="goto_slide_4">no change to your content</a>
+			</li>
+			<li>
+				<a href="javascript:void(0)" class="goto_slide_4">no change to your software</a>
+			</li>
+		</ul>
+	</div>
+</div>
+
+<div id="slider">
+	<ul>
+		<li>
+			<div class="slide" style="display: none;">
+				Webpeer is free and opensource.
+				It seamlessly unifies web and p2p to leverage the best both worlds in a breeze.
+				It is
+				<a href="javascript:void(0)" class="goto_slide_2">efficient</a>
+				,
+				<a href="javascript:void(0)" class="goto_slide_3">robust</a>
+				and
+				<a href="javascript:void(0)" class="goto_slide_4">transparent</a>
+				.
+				<br/>
+				<br/>
+				<br/>
+				<br/>
+			</div>
+		</li>
+		<li>
+			<div class="slide">
+				<h1>Efficient</h1>
+				Webpeer brings <strong>p2p efficiency</strong> to the web.
+				People in the web peer cloud collaborates with each other.
+				Their sharing allows a <strong>reduced server load</strong>
+				and a <strong>faster downloads</strong> for the client.
+			</div>
+		</li>
+		<li>
+			<div class="slide" style="display: none;">
+				<h1>Robust</h1>
+				Webpeer leverages content from <strong>multiple sources</strong>.
+				This redundancy allows <strong>no single point of failure</strong>, that you can see in
+				usual http client/server model.
+				Thus you enjoy <strong>more reliable content delivery</strong>.
+			</div>
+		</li>
+		<li>
+			<div class="slide" style="display: none;">
+				<h1>Transparent</h1>
+				Webpeer is transparently integrated to your web environnment without changing it.
+				It has been designed to be <strong>non-intrusive</strong>.
+				It is <strong>transparent for content</strong>. Use your unmodified files and streams now!
+				It is <strong>transparent for software</strong>. Keep using your usual http clients and servers.
+			</div>
+		</li>
+	</ul>
+</div>
+<div class="slider_menu">
+	<a href="javascript:void(0)" class="goto_slide_1">Intro</a>
+	<a href="javascript:void(0)" class="goto_slide_2">Efficient</a>
+	<a href="javascript:void(0)" class="goto_slide_3">Robust</a>
+	<a href="javascript:void(0)" class="goto_slide_4">Transparent</a>
+</div>	
+
+
 
   
+	<div class="footer">
+		<div class="contact">
+			Webpeer.it&nbsp;&nbsp;
+			<!-- webpeer badge start -->
+			<script type="text/javascript" src="/js/webpeer.js"></script>
+			<a href="http://webpeer.it"><img id="webpeer_badge" style="border-style: hidden" width="16" height="16"
+			src="/images/badge/wait16trans.gif" title="Probbing webpeer"/></a>
+			<script>webpeer.badge('webpeer_badge');</script>
+			<!-- webpeer badge end -->
+			<br>
+			web ubiquity + p2p efficiency
+		</div>
+		<div class="contact">
+			<a href="http://wiki.github.com/jeromeetienne/mw/">wiki</a>
+			|
+			<a href="/about">about</a>
+			<br>
+			Built at Sun Sep 05 11:40:45 +0200 2010
+			<!-- tweet button -- http://twitter.com/goodies/tweetbutton -->
+			<a href="http://twitter.com/share" class="twitter-share-button" data-url="http://webpeer.it" data-text="WebPeer.it boosts your internet for free! Check it out!" data-count="none" data-via="webpeerit" data-related="jerome_etienne:The author">Tweet</a><script type="text/javascript" src="http://platform.twitter.com/widgets.js"></script>
+	</div>
+</div>
+
+<!-- google analytic -->
+<script type="text/javascript">
+  var _gaq = _gaq || [];
+  _gaq.push(['_setAccount', 'UA-4037844-13']);
+  _gaq.push(['_trackPageview']);
+  (function() {
+    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+  })();
+</script>
+
 </body>
 </html>

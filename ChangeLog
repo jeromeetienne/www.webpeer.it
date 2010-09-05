@@ -1,0 +1,19 @@
+* 2010/08/28
+** a lot more posts
+** more test in homepage
+** start looking good
+
+* 2010/08/20
+** registered irc channel on freenode
+** added webpeer.js API description in docs/
+*** manual import from jsdoc in lib/webpeer.js
+
+* 2010/07/16
+** homepage menu refactoring
+** added www.webpeer.it to CNAME webpeer.it
+** moved site in its own repository http://github.com/jeromeetienne/www.webpeer.it
+** got sliders on the homepage
+
+* 2010/08/16 - Moved to .nojekyll at the root
+** needed because jekyll ignore _* basename and jsdoc is producing _global_.html
+** so i forked jekyll, fixed it. and generate the site myself
