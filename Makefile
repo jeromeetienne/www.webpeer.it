@@ -4,13 +4,12 @@
 all:
 
 PWD		:= $(shell pwd)
-JEKYLL_DST	:= /home/jerome/webwork/mw
+JEKYLL_DST	:= /home/jerome/webwork/www.webpeer.it.gh-pages
 NODE_NEOIP_DIR	:= /home/jerome/webwork/node-neoip
 
 build:	jsdoc_build webpeerjs_import
 
 clean: jsdoc_clean webpeerjs_clean
-
 
 server:
 	lighttpd -f lighttpd.conf  -D
@@ -22,6 +21,9 @@ jekyll_build:
 	(cd $(JEKYLL_DST) && git reset --hard origin/gh-pages)
 	touch $(JEKYLL_DST)/.nojekyll
 	/home/jerome/work/jekyll/bin/jekyll . $(JEKYLL_DST)
+	
+jekyll_monitor:
+	(while inotifywait -r -e modify,attrib,create . ; do make jekyll_build; done)
 
 #################################################################################
 #		doc handling							#
