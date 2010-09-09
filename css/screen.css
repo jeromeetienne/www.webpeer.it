@@ -87,6 +87,7 @@ table {
 }
 
 .site .header .title {	/* From google font directory */
+	padding-top	: 45px;
 	font-size	: 90px;
 	font-family	: 'Vollkorn', serif;
 	font-style	: normal;
@@ -98,10 +99,8 @@ table {
 	line-height	: 0em;
 }
 
-body.mozilla .site .header .title {	/* mozilla specific css */
-	padding-top	: 45px;
-}
 .site .header .slogan {	/* From google font directory */
+	padding-top	: 12px;
 	font-size	: 24px;
 	font-family	: 'Crimson Text', serif;
 	font-style	: normal;
@@ -111,9 +110,6 @@ body.mozilla .site .header .title {	/* mozilla specific css */
 	letter-spacing	: 0.083em;
 	word-spacing	: 0em;
 	line-height	: 0.5em;
-}
-body.mozilla .site .header .slogan {	/* mozilla specific css */
-	padding-top	: 12px;
 }
 
 .site .header .title {

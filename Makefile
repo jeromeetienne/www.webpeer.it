@@ -11,7 +11,6 @@ build:	jsdoc_build webpeerjs_import
 
 clean: jsdoc_clean webpeerjs_clean
 
-
 server:
 	lighttpd -f lighttpd.conf  -D
 		
