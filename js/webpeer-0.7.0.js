@@ -1560,7 +1560,7 @@ webpeer.monitor	= function(ctor_opts){
 }
 
 /**
- * Generate a badge of webpeer. It is web-only function. a busy wheel is displayed
+ * Generate a dynamic badge of webpeer. It is web-only function. a busy wheel is displayed
  * during the detection, if detected it is replaced by a green checkmark, else it is
  * replaced by a red cross
  * 

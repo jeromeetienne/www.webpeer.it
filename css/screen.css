@@ -87,7 +87,9 @@ table {
 }
 
 .site .header .title {	/* From google font directory */
-	padding-top	: 45px;
+	padding-top	: 22.5px;
+	padding-bottom	: 22.5px;
+	height		: 50px;
 	font-size	: 90px;
 	font-family	: 'Vollkorn', serif;
 	font-style	: normal;
@@ -104,7 +106,6 @@ table {
 	font-size	: 24px;
 	font-family	: 'Crimson Text', serif;
 	font-style	: normal;
-	font-weight	: 700;
 	text-shadow	: 2px 2px 2px #aaa;
 	text-transform	: none;
 	letter-spacing	: 0.083em;
